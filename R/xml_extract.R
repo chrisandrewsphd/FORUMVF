@@ -7,9 +7,9 @@
 #' @export
 #'
 #' @examples
-#'    parsed <- xml2::read_xml("abc.xml")
-#'    root <- xml2::xml_root(parsed)
-#'    xml_extract(root)
+#'    # parsed <- xml2::read_xml("abc.xml")
+#'    # root <- xml2::xml_root(parsed)
+#'    # xml_extract(root)
 xml_extract <- function(top, comments = FALSE) {
   # Create empty return vector
   retvalnames <- c(
