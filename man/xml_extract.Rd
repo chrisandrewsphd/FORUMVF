@@ -17,3 +17,8 @@ a character vector with about 60 components extracted from the XML
 \description{
 Extract test level information from FORUM XML file
 }
+\examples{
+   parsed <- xml2::read_xml("abc.xml")
+   root <- xml2::xml_root(parsed)
+   xml_extract(root)
+}
