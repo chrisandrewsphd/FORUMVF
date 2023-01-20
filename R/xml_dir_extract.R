@@ -31,8 +31,8 @@ xml_dir_extract <- function(xmldir, recursive = FALSE, comment = FALSE, verbose 
       simplify = FALSE,
       USE.NAMES = TRUE))
   if (isTRUE(verbose > 0)) {
-    cat("Started reading at", startTime, "\n")
-    cat("Reading Duration", st1, "\n")
+    cat(sprintf("Started reading at %s\n", startTime))
+    cat("Reading Duration", st1[1:3], "\n")
   }
 
   # list of root nodes
@@ -48,7 +48,7 @@ xml_dir_extract <- function(xmldir, recursive = FALSE, comment = FALSE, verbose 
   st2 <- system.time(
     mat <- t(sapply(list_top, xml_extract, comment = comment)))
   if (isTRUE(verbose > 0)) {
-    cat("Processing Duration", st2, "\n")
+    cat("Processing Duration", st2[1:3], "\n")
   }
 
   return(invisible(mat))
