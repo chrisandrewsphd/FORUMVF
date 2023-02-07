@@ -22,5 +22,5 @@ character matrix. One row per file.  First column is file name with complete pat
 Extract visual field values from all xml files in a directory
 }
 \examples{
-xml_dir_extract(".") # files in current directory
+# xml_dir_extract(".") # files in current directory
 }
