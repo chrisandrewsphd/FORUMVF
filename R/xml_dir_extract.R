@@ -8,13 +8,19 @@
 #' @return character matrix. One row per file.  First column is file name with complete path. Subsequent columns are extracted values from xml files.
 #' @export
 #'
-#' @examples xml_dir_extract(".") # files in current directory
-xml_dir_extract <- function(xmldir, recursive = FALSE, comment = FALSE, verbose = 0) {
+#' @examples # xml_dir_extract(".") # files in current directory
+xml_dir_extract <- function(
+    xmldir,
+    recursive = FALSE,
+    comment = FALSE,
+    verbose = 0) {
+
   # all xml filenames in directory xmldir
   xmlfilenames <- grep(
     "\\.xml$",
     dir(xmldir, full.names = TRUE, recursive = recursive),
     value = TRUE)
+
   if (isTRUE(verbose > 0)) {
     cat(sprintf("%d filenames found in %s.\n", length(xmlfilenames), xmldir))
     if (isTRUE(verbose > 1)) {
