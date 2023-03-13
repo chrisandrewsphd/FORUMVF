@@ -7,12 +7,14 @@
 #' @export
 #'
 #' @examples
-#'    parsed <- xml2::read_xml("testdata.xml")
+#'    exdatadir <- system.file('extdata', package = 'FORUMVF')
+#'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
 #'    root <- xml2::xml_root(parsed)
 #'    xml_extract(root)
 xml_extract <- function(top, comments = FALSE) {
   # Create empty return vector
   retvalnames <- c(
+    "TestID",
     "Name", "MRN0", "MRN", # "MRNSource",
     "DOB", "Age", "Sex", "Institution",
     "TestDuration", "TestDate", "TestTime", "TestDateTime",
@@ -44,13 +46,6 @@ xml_extract <- function(top, comments = FALSE) {
   retval <- character(length(retvalnames))
   names(retval) <- retvalnames
 
-  text_of_first <- function(node, tag) {
-    # returns NA if node is missing
-    if (is.na(node)) return(NA_character_)
-    # returns NA if tag is not found
-    # returns "" if tag is found but has no value
-    xml2::xml_text(xml2::xml_find_first(node, sprintf(".//attr [@tag = '%s']", tag)))
-  }
   computeage <- function(textdate0, textdate1) {
     rough <- as.numeric(substr(textdate1, 1, 4)) - as.numeric(substr(textdate0, 1, 4))
     if (substr(textdate1, 5, 6) < substr(textdate0, 5, 6))
@@ -75,6 +70,12 @@ xml_extract <- function(top, comments = FALSE) {
       }
     }
   }
+
+  ###########
+  # TEST ID #
+  ###########
+  # ( 0) Name: 00020003
+  retval["TestID"] <- text_of_first(top, '00020003')
 
   ################
   # DEMOGRAPHICS #
