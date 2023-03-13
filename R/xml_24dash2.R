@@ -10,7 +10,8 @@
 #' @export
 #'
 #' @examples
-#'    parsed <- xml2::read_xml("testdata.xml")
+#'    exdatadir <- system.file('extdata', package = 'FORUMVF')
+#'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
 #'    root <- xml2::xml_root(parsed)
 #'    xml_points24dash2(root)
 xml_points24dash2 <- function(
@@ -59,8 +60,8 @@ xml_points24dash2 <- function(
 
   # node with 54 children
   pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
-  if (xml_length(pointsequence) != 54L) {
-    cat(sprintf("%3d points\n", xml_length(pointsequence)))
+  if (xml2::xml_length(pointsequence) != 54L) {
+    cat(sprintf("%3d points\n", xml2::xml_length(pointsequence)))
     stop("Pattern 24-2 but not 54 points.")
   }
 
@@ -68,7 +69,7 @@ xml_points24dash2 <- function(
   # nrow = 7 or 11
   # ncol = 54
   pointmatrix <- sapply(seq.int(54L), FUN = function(i)
-    xml_point(xml_child(pointsequence, i)))
+    xml_point(xml2::xml_child(pointsequence, i)))
 
   #########
   # ORDER #
@@ -106,7 +107,8 @@ xml_points24dash2 <- function(
   pointmatrix <- pointmatrix[, reorder]
 
   if (isTRUE(dropXY)) {
-    pointmatrix <- pointmatrix[-c(1, 2), ]
+    # pointmatrix <- pointmatrix[-c(1, 2), ]
+    pointmatrix <- pointmatrix[setdiff(rownames(pointmatrix), c("X", "Y")), ]
   }
 
   retval <- if (isTRUE(asvector)) {
@@ -120,12 +122,13 @@ xml_points24dash2 <- function(
 
 xml_point <- function(
     pointroot,
-    allfields = FALSE) {
-  retvalnames <- if (isTRUE(allfields)) {
-    c("X", "Y", "Stim Res", "Sens Val", "Stim Res 2", "Sens Val 2", "ACSDV", "ACSDPV", "GDCSDF", "GDCSDV", "GDCSDPV")
-  } else if (isFALSE(allfields)) {
-    c("X", "Y", "Sens Val", "ACSDV", "ACSDPV", "GDCSDV", "GDCSDPV")
-  } else stop("allfields must be TRUE or FALSE")
+    extra4fields = FALSE) {
+  retvalnames <- if (isTRUE(extra4fields)) {
+    # c("X", "Y", "Stim Res", "Sens Val", "Stim Res 2", "Sens Val 2", "ACSDV", "ACSDPV", "GDCSDF", "GDCSDV", "GDCSDPV")
+    c("X", "Y", "Sens Val", "ACSDV", "GDCSDV", "ACSDPV", "GDCSDPV", "Stim Res", "Stim Res 2", "Sens Val 2", "GDCSDF")
+  } else if (isFALSE(extra4fields)) {
+    c("X", "Y", "Sens Val", "ACSDV", "GDCSDV", "ACSDPV", "GDCSDPV")
+  } else stop("extra4fields must be TRUE or FALSE")
 
   retval <- character(length(retvalnames))
   names(retval) <- retvalnames
@@ -135,101 +138,22 @@ xml_point <- function(
   retval["Sens Val"] <- text_of_first(pointroot, "00240094") # Sensitivity value
 
   # Normal Sequence
-  normalroot <- xml_child(xml_find_first(pointroot, ".//attr [@tag = '00240097']"), 1)
+  normalroot <- xml2::xml_child(xml2::xml_find_first(pointroot, ".//attr [@tag = '00240097']"), 1)
 
   retval["ACSDV"] <- text_of_first(normalroot, "00240092") # Age Corrected Sensitivity Deviation Value
   retval["ACSDPV"] <- text_of_first(normalroot, "00240100") # Age Corrected Sensitivity Deviation Probability Value
   retval["GDCSDV"] <- text_of_first(normalroot, "00240103") # Generalized Defect Corrected Sensitivity Deviation Value
   retval["GDCSDPV"] <- text_of_first(normalroot, "00240104") # Generalized Defect Corrected Sensitivity Deviation Probability Value
 
-  if (isTRUE(allfields)) {
+  if (isTRUE(extra4fields)) {
     # RETEST
-    retval[ 3] <- text_of_first(pointroot, "00240093") # Stimulus result: SEEN vs NOT SEEN
-    retval[ 5] <- text_of_first(pointroot, "00240095") # Stimulus result: SEEN vs NOT SEEN
-    retval[ 6] <- text_of_first(pointroot, "00240096") # Sensitivity value
-    retval[ 9] <- text_of_first(normalroot, "00240102") # Generalized Defect Corrected Sensitivity Deviation Flag
+    retval["Stim Res"] <- text_of_first(pointroot, "00240093") # Stimulus result: SEEN vs NOT SEEN
+    retval["Stim Res 2"] <- text_of_first(pointroot, "00240095") # Stimulus result: SEEN vs NOT SEEN
+    retval["Sens Val 2"] <- text_of_first(pointroot, "00240096") # Sensitivity value
+    retval["GDCSDF"] <- text_of_first(normalroot, "00240102") # Generalized Defect Corrected Sensitivity Deviation Flag
   }
 
   return(retval)
 }
 
-# not for export
-text_of_first <- function(node, tag) {
-  # returns NA if node is missing
-  if (is.na(node)) return(NA_character_)
-  # returns NA if tag is not found
-  # returns "" if tag is found but has no value
-  xml2::xml_text(xml2::xml_find_first(node, sprintf(".//attr [@tag = '%s']", tag)))
-}
 
-plot_visual_field <- function(
-    mat, valrow = 4,
-    add = FALSE, probs = FALSE, textcolor = "black", strip.0 = TRUE,
-    usedatarange = FALSE,
-    format = "XY") {
-
-  format <- match.arg(format, c("XY", "24-2 OD", "24-2 OS"))
-
-  if (format == "XY") {
-    xx <- as.numeric(mat["X", ])
-    yy <- as.numeric(mat["Y", ])
-  } else if (format == "24-2 OD") {
-    xx <- c(seq(-9, 9, 6), seq(-15, 15, 6), seq(-21, 21, 6), seq(-27, 21, 6),
-            seq(-27, 21, 6), seq(-21, 21, 6), seq(-15, 15, 6), seq(-9, 9, 6))
-    yy <- rep(c(21, 15, 9, 3, -3, -9, -15, -21), times = c(4, 6, 8, 9, 9, 8, 6, 4))
-  } else if (format == "24-2 OS") {
-    xx <- c(seq(-9, 9, 6), seq(-15, 15, 6), seq(-21, 21, 6), seq(-21, 27, 6),
-            seq(-21, 27, 6), seq(-21, 21, 6), seq(-15, 15, 6), seq(-9, 9, 6))
-    yy <- rep(c(21, 15, 9, 3, -3, -9, -15, -21), times = c(4, 6, 8, 9, 9, 8, 6, 4))
-  }
-
-  vv <- mat[valrow, ]
-
-  if (isTRUE(usedatarange)) {
-    xlim <- range(xx)
-    ylim <- range(yy)
-  } else if (isFALSE(usedatarange)) {
-    xlim <- c(-30, 30)
-    ylim <- c(-30, 30)
-  } else stop("usedatarange must be TRUE or FALSE")
-
-  if (isFALSE(add)) {
-    plot(
-      NA, asp = 1, bty = "n",
-      xlim = xlim, xlab = "", xaxt = "n",
-      ylim = ylim, ylab = "", yaxt = "n")
-    axis(1, at = seq(-30, 30, 10), labels = FALSE, pos = 0)
-    axis(2, at = seq(-30, 30, 10), labels = FALSE, pos = 0)
-  }
-
-  if (isFALSE(probs)) text(
-    xx, yy,
-    if (isTRUE(strip.0)) gsub(".0", "", vv, fixed = TRUE) else vv,
-    col = textcolor)
-  else if (isTRUE(probs)) points(
-    xx, yy, cex = 4, pch = 16,
-    col = grey(c(0.1, 0.3, 0.5, 0.7, 0.9))[
-      as.numeric(factor(
-        vv,
-        levels = c("0.5", "1.0", "2.0", "5.0", "0.0")))]
-  )
-  else stop("probs must be TRUE or FALSE")
-
-  return(invisible(NULL))
-}
-
-# vfmat <- sapply(1:54, FUN = function(i) xml_point(xml_child(el, i)))
-# dim(vfmat)
-#
-# plot_visual_field(vfmat)
-# plot_visual_field(vfmat, "Sens Val")
-# plot_visual_field(vfmat, "ACSDV")
-# plot_visual_field(vfmat, "GDCSDV")
-#
-# plot_visual_field(vfmat, "ACSDPV", probs = TRUE)
-# plot_visual_field(vfmat, "GDCSDPV", probs = TRUE)
-#
-# par(mar = c(1,1,1,1), las = 1, pty = "s")
-# plot_visual_field(vfmat, "GDCSDPV", probs = TRUE)
-# plot_visual_field(vfmat, "GDCSDV", probs = FALSE, add = TRUE, textcolor = "red")
-# abline(h = 0, v = 0)
