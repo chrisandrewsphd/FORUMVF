@@ -10,6 +10,8 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.2
 Imports:
-    xml2
+    xml2,
+    grDevices,
+    graphics
 URL: https://github.com/chrisandrewsphd/FORUMVF
 BugReports: https://github.com/chrisandrewsphd/FORUMVF/issues
