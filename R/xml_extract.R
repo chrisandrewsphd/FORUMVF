@@ -46,35 +46,11 @@ xml_extract <- function(top, comments = FALSE) {
   retval <- character(length(retvalnames))
   names(retval) <- retvalnames
 
-  computeage <- function(textdate0, textdate1) {
-    rough <- as.numeric(substr(textdate1, 1, 4)) - as.numeric(substr(textdate0, 1, 4))
-    if (substr(textdate1, 5, 6) < substr(textdate0, 5, 6))
-      return(as.character(rough-1))
-    if (substr(textdate1, 5, 6) > substr(textdate0, 5, 6))
-      return(as.character(rough))
-    if (substr(textdate1, 7, 8) < substr(textdate0, 7, 8))
-      return(as.character(rough-1))
-    return(as.character(rough))
-  }
-  text_of_most_common_with_check <- function(node, tag) {
-    els <- xml2::xml_find_all(node, sprintf(".//attr [@tag = '%s']", tag))
-    if (length(els) == 0) return(NA_character_)
-    else if (length(els) == 1) return(xml2::xml_text(els))
-    else {
-      vec <- xml2::xml_text(els)
-      tab <- sort(table(vec, exclude = c(NA, "")), decreasing = TRUE)
-      if (length(tab) < 1) return("")
-      else {
-        if (length(tab) > 1) warning(sprintf("Multiple values are not unique for tag %s.", tag))
-        return(names(tab)[1])
-      }
-    }
-  }
 
   ###########
   # TEST ID #
   ###########
-  # ( 0) Name: 00020003
+  # ( 0) TestID: 00020003
   retval["TestID"] <- text_of_first(top, '00020003')
 
   ################
