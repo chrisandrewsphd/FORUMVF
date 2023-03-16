@@ -142,19 +142,29 @@ xml_point <- function(
   retval["Sens Val"] <- text_of_first(pointroot, "00240094") # Sensitivity value
 
   # Normal Sequence
-  normalroot <- xml2::xml_child(xml2::xml_find_first(pointroot, ".//attr [@tag = '00240097']"), 1)
+  # Are the normalized values present?
+  normalparent <- xml2::xml_find_first(pointroot, ".//attr [@tag = '00240097']")
+  if (!is.na(normalparent)) {
+    normalroot <- xml2::xml_child(normalparent, 1)
 
-  retval["ACSDV"] <- text_of_first(normalroot, "00240092") # Age Corrected Sensitivity Deviation Value
-  retval["ACSDPV"] <- text_of_first(normalroot, "00240100") # Age Corrected Sensitivity Deviation Probability Value
-  retval["GDCSDV"] <- text_of_first(normalroot, "00240103") # Generalized Defect Corrected Sensitivity Deviation Value
-  retval["GDCSDPV"] <- text_of_first(normalroot, "00240104") # Generalized Defect Corrected Sensitivity Deviation Probability Value
+    retval["ACSDV"] <- text_of_first(normalroot, "00240092") # Age Corrected Sensitivity Deviation Value
+    retval["ACSDPV"] <- text_of_first(normalroot, "00240100") # Age Corrected Sensitivity Deviation Probability Value
+    retval["GDCSDV"] <- text_of_first(normalroot, "00240103") # Generalized Defect Corrected Sensitivity Deviation Value
+    retval["GDCSDPV"] <- text_of_first(normalroot, "00240104") # Generalized Defect Corrected Sensitivity Deviation Probability Value
+  } else {
+    retval[c("ACSDV", "ACSDPV", "GDCSDV", "GDCSDPV")] <- NA_character_
+  }
 
   if (isTRUE(extra4fields)) {
     # RETEST
     retval["Stim Res"] <- text_of_first(pointroot, "00240093") # Stimulus result: SEEN vs NOT SEEN
     retval["Stim Res 2"] <- text_of_first(pointroot, "00240095") # Stimulus result: SEEN vs NOT SEEN
     retval["Sens Val 2"] <- text_of_first(pointroot, "00240096") # Sensitivity value
-    retval["GDCSDF"] <- text_of_first(normalroot, "00240102") # Generalized Defect Corrected Sensitivity Deviation Flag
+    retval["GDCSDF"] <- if (!is.na(normalparent)) {
+      text_of_first(normalroot, "00240102") # Generalized Defect Corrected Sensitivity Deviation Flag
+    } else {
+      NA_character_
+    }
   }
 
   return(retval)
