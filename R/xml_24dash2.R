@@ -23,31 +23,23 @@ xml_points24dash2 <- function(
 
   eyeformat <- match.arg(eyeformat, choices = c("OD", "OS", "file", "raw"))
 
-  # ( 5) Laterality: 00200060 and 00240113:Measurement Laterality
-  # Laterality (for each tag) appeared at most once in sample of 10K files
-  # Record first of each
-  # els <- xml_find_all(top, ".//attr [@tag = '00200060']")
-  # sapply(els, xml_text)
-  # ( 5)* Laterality:
-  # els <- xml_find_all(top, ".//attr [@tag = '00240113']")
-  # sapply(els, xml_text)
-  Laterality1 <- text_of_first(top, '00200060')
-  Laterality2 <- text_of_first(top, '00240113')
+  if (!("xml_node" %in% class(top))) stop("'top' must be class 'xml_node'.")
 
-  if (verbose > 0) {
-    print(Laterality1)
-    print(Laterality2)
-  }
-
+  ###########
+  # TEST ID #
+  ###########
+  # ( 0) TestID: 00020003
+  TestID <- text_of_first(top, '00020003')
 
   # check strategy
   strategysequence <- xml2::xml_find_first(top, ".//attr [@tag = '00400260']") # node with 2 children (test pattern, test strategy)
-  TestPattern <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 1), ".//attr [@tag = '00080104']"))
-  TestStrategy <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 2), ".//attr [@tag = '00080104']"))
+  # TestPattern <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 1), ".//attr [@tag = '00080104']"))
+  TestPattern <- text_of_first(xml2::xml_child(strategysequence, 1), '00080104')
+  # TestStrategy <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 2), ".//attr [@tag = '00080104']"))
+  TestStrategy <- text_of_first(xml2::xml_child(strategysequence, 2), '00080104')
 
   if (verbose > 0) {
-    print(TestPattern)
-    print(TestStrategy)
+    cat(sprintf("Test Pattern and Strategy: '%s', '%s'\n", TestPattern, TestStrategy))
   }
 
   if (TestPattern != "Visual Field 24-2 Test Pattern") {
@@ -56,6 +48,14 @@ xml_points24dash2 <- function(
     # return(
     #   if (isTRUE(asvector)) character(54 * 5 or 7 or 9 or 11)
     #   else matrix("", nrow = 5 or 7 or 9 or 11, ncol = 54))
+  }
+
+  # ( 5) Laterality: 00200060 and 00240113:Measurement Laterality
+  Laterality1 <- text_of_first(top, '00200060')
+  Laterality2 <- text_of_first(top, '00240113')
+
+  if (verbose > 0) {
+    cat(sprintf("Laterality 1 and 2: '%s', '%s'\n", Laterality1, Laterality2))
   }
 
   # node with 54 children
@@ -112,10 +112,14 @@ xml_points24dash2 <- function(
   }
 
   retval <- if (isTRUE(asvector)) {
-    as.vector(pointmatrix)
+    c(TestID = TestID, Eye = Laterality1, Format = eyeformat,
+      as.vector(t(pointmatrix)))
   } else if (isFALSE(asvector)) {
+    attr(pointmatrix, "TestID") <- TestID
+    attr(pointmatrix, "Eye") <- Laterality1
+    attr(pointmatrix, "Format") <- eyeformat
     pointmatrix
-  } else stop("asvector must be TRUE or FALSE")
+  } else stop("'asvector' must be TRUE or FALSE.")
 
   return(retval)
 }
