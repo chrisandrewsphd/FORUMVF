@@ -151,8 +151,14 @@ xml_extract <- function(top, comments = FALSE) {
   # ch23 <- xml_find_first(ch2, ".//attr [@tag = '00080104']")
   # retval["TestPattern"] <- xml_text(ch13)
   # retval["TestStrategy"] <- xml_text(ch23)
-  retval["TestPattern"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 1), ".//attr [@tag = '00080104']"))
-  retval["TestStrategy"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 2), ".//attr [@tag = '00080104']"))
+  if (!is.na(el)) {
+    # retval["TestPattern"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 1), ".//attr [@tag = '00080104']"))
+    retval["TestPattern"] <- text_of_first(xml2::xml_child(el, 1), '00080104')
+    # retval["TestStrategy"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 2), ".//attr [@tag = '00080104']"))
+    retval["TestStrategy"] <- text_of_first(xml2::xml_child(el, 2), '00080104')
+  } else {
+    retval[c("TestPattern", "TestStrategy")] <- NA_character_
+  }
 
   ############
   # FIXATION #
