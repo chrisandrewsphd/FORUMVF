@@ -18,7 +18,8 @@ a character vector with about 60 components extracted from the XML
 Extract test level information from FORUM XML file
 }
 \examples{
-   parsed <- xml2::read_xml("testdata.xml")
+   exdatadir <- system.file('extdata', package = 'FORUMVF')
+   parsed <- xml2::read_xml(sprintf("\%s/testdata.xml", exdatadir))
    root <- xml2::xml_root(parsed)
    xml_extract(root)
 }
