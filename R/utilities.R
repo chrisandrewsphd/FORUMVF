@@ -7,9 +7,9 @@
 #'     if node is missing or if tag is missing.  Value is "" if tag is found
 #'     for node but the tag has no value.
 text_of_first <- function(node, tag) {
-  if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
   # returns NA if node is missing
   if (is.na(node)) return(NA_character_)
+  if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
   # returns NA if tag is not found
   # returns "" if tag is found but has no value
   xml2::xml_text(
@@ -27,10 +27,11 @@ text_of_first <- function(node, tag) {
 #'     if node is missing or if tag is missing.  Value is "" if tag is found
 #'     for node but the tag has no value.
 text_of_most_common_with_check <- function(node, tag) {
-  if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
-
   # returns NA if node is missing
   if (is.na(node)) return(NA_character_)
+
+  if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
+
 
   # nodeset of all matches (possible empty)
   els <- xml2::xml_find_all(node, sprintf(".//attr [@tag = '%s']", tag))
