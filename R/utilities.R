@@ -60,6 +60,57 @@ text_of_most_common_with_check <- function(node, tag, verbose = 0) {
   }
 }
 
+#' Return the text value associated with a tag. Tailored for MRN finding.
+#'
+#' @param node xml node
+#' @param tag attribute tag to find. Default is '00100020'.
+#' @param verbose Control amount of output to console. Default is 0. Larger values may produce more output.
+#'
+#' @return length-1 character vector containing text of tag. Value is NA
+#'     if node is missing or if tag is missing.  Value is "" if tag is found
+#'     for node but the tag has no value.
+text_of_mrn <- function(node, tag = '00100020', verbose = 0) {
+  # returns NA if node is missing
+  if (is.na(node)) return(NA_character_)
+
+  if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
+
+  # nodeset of all matches (possible empty)
+  els <- xml2::xml_find_all(node, sprintf(".//attr [@tag = '%s']", tag))
+  if (verbose > 1) print(els)
+
+  # return NA if no matches
+  if (length(els) == 0) return(NA_character_)
+  # return text of only node if length is 1
+  else if (length(els) == 1) return(xml2::xml_text(els))
+  else {
+    # character vector of text of multiple matches
+    vec <- xml2::xml_text(els)
+    # table of non-empty, non-missing text, sorted from most to least common.
+    tab <- sort(table(vec, exclude = c(NA, "")), decreasing = TRUE)
+    # return "" if all values were blank or missing
+    if (length(tab) < 1) return("")
+    # return only value if exactly 1 value
+    else if (length(tab) == 1) return(names(tab))
+    # If more than one value, return most common
+    # if tie, return value with #digits closest to 9
+    # after issuing warning if more than one value
+    else {
+      warning(sprintf("Multiple values are not unique for tag %s.", tag))
+      if (verbose > 0) print(tab)
+
+      tab1 <- tab[tab == tab[1]] # select all the most common
+      if (length(tab1) == 1) {
+        if (verbose > 0) cat("Choosing most common.\n")
+        return(names(tab1))
+      } else {
+        if (verbose > 0) cat("Choosing by number of digits.\n")
+        return(names(tab1)[order(abs(nchar(names(tab1)) - 9.1))[1]]) # give slight preference to 10 digits over 8 due to hyphens.
+      }
+    }
+  }
+}
+
 
 #' Compute age. text input and output
 #'

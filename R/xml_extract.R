@@ -87,7 +87,8 @@ xml_extract <- function(top, comments = FALSE) {
   # Return most common
   # els <- xml_find_all(top, ".//attr [@tag = '00100020']")
   # sapply(els, xml_text)
-  retval["MRN0"] <- text_of_most_common_with_check(top, '00100020', verbose = 1)
+  # retval["MRN0"] <- text_of_most_common_with_check(top, '00100020', verbose = 1)
+  retval["MRN0"] <- text_of_mrn(top, verbose = 1)
   retval["MRN"] <- gsub("[^[:digit:]]", "", retval["MRN0"])
   # # # ( 4)* ID issuer: 00100021
   # # els <- xml_find_all(top, ".//attr [@tag = '00100021']")
