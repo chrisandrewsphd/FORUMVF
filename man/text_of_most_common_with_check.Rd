@@ -4,12 +4,14 @@
 \alias{text_of_most_common_with_check}
 \title{Return the text value associated with a tag}
 \usage{
-text_of_most_common_with_check(node, tag)
+text_of_most_common_with_check(node, tag, verbose = 0)
 }
 \arguments{
 \item{node}{xml node}
 
 \item{tag}{attribute tag to find}
+
+\item{verbose}{Control amount of output to console. Default is 0. Larger values may produce more output.}
 }
 \value{
 length-1 character vector containing text of tag. Value is NA

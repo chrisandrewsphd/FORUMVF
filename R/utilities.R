@@ -22,19 +22,20 @@ text_of_first <- function(node, tag) {
 #'
 #' @param node xml node
 #' @param tag attribute tag to find
+#' @param verbose Control amount of output to console. Default is 0. Larger values may produce more output.
 #'
 #' @return length-1 character vector containing text of tag. Value is NA
 #'     if node is missing or if tag is missing.  Value is "" if tag is found
 #'     for node but the tag has no value.
-text_of_most_common_with_check <- function(node, tag) {
+text_of_most_common_with_check <- function(node, tag, verbose = 0) {
   # returns NA if node is missing
   if (is.na(node)) return(NA_character_)
 
   if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
 
-
   # nodeset of all matches (possible empty)
   els <- xml2::xml_find_all(node, sprintf(".//attr [@tag = '%s']", tag))
+  if (verbose > 1) print(els)
 
   # return NA if no matches
   if (length(els) == 0) return(NA_character_)
@@ -47,9 +48,13 @@ text_of_most_common_with_check <- function(node, tag) {
     tab <- sort(table(vec, exclude = c(NA, "")), decreasing = TRUE)
     # return "" if all values were blank or missing
     if (length(tab) < 1) return("")
-    # If not unique, issue warning and return most common (although ties are broken randomly)
+    # If at least one value, return most common (although ties are broken randomly)
+    # after issuing warning if more than one value
     else {
-      if (length(tab) > 1) warning(sprintf("Multiple values are not unique for tag %s.", tag))
+      if (length(tab) > 1) {
+        warning(sprintf("Multiple values are not unique for tag %s.", tag))
+        if (verbose > 0) print(tab)
+      }
       return(names(tab)[1])
     }
   }
