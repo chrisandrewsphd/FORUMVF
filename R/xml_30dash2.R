@@ -10,17 +10,17 @@
 #' @export
 #'
 #' @examples
-#'    #exdatadir <- system.file('extdata**find new file', package = 'FORUMVF')
-#'    #parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
-#'    #root <- xml2::xml_root(parsed)
-#'    #xml_points30dash2(root)
+#'    exdatadir <- system.file('extdata', package = 'FORUMVF')
+#'    parsed <- xml2::read_xml(sprintf("%s/testdata30dash2.xml", exdatadir))
+#'    root <- xml2::xml_root(parsed)
+#'    xml_points30dash2(root)
 xml_points30dash2 <- function(
     top,
     asvector = TRUE,
     eyeformat = "OD",
     dropXY = eyeformat %in% c("OD", "OS"),
     verbose = 0) {
-
+t
   eyeformat <- match.arg(eyeformat, choices = c("OD", "OS", "file", "raw"))
 
   if (!("xml_node" %in% class(top))) stop("'top' must be class 'xml_node'.")
@@ -171,5 +171,4 @@ xml_points30dash2 <- function(
 #
 #   return(retval)
 # }
-
 
