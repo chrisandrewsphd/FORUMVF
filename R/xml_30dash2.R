@@ -11,7 +11,7 @@
 #'
 #' @examples
 #'    #exdatadir <- system.file('extdata', package = 'FORUMVF')
-#'   # parsed <- xml2::read_xml(sprintf("%s/testdata30dash2.xml", exdatadir))
+#'    #parsed <- xml2::read_xml(sprintf("%s/testdata30dash2.xml", exdatadir))
 #'    #root <- xml2::xml_root(parsed)
 #'    #xml_points30dash2(root)
 xml_points30dash2 <- function(

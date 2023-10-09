@@ -13,7 +13,7 @@
 #'    #exdatadir <- system.file('extdata', package = 'FORUMVF')
 #'    #parsed <- xml2::read_xml(sprintf("%s/testdata10dash2.xml", exdatadir))
 #'    #root <- xml2::xml_root(parsed)
-#'   # xml_points10dash2(root)
+#'    #xml_points10dash2(root)
 xml_points10dash2 <- function(
     top,
     asvector = TRUE,
