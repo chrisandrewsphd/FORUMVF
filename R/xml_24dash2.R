@@ -166,7 +166,6 @@ xml_point <- function(
       NA_character_
     }
   }
-
   return(retval)
 }
 
