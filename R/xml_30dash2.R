@@ -107,7 +107,6 @@ xml_points30dash2 <- function(
     # pointmatrix <- pointmatrix[-c(1, 2), ]
     pointmatrix <- pointmatrix[setdiff(rownames(pointmatrix), c("X", "Y")), ]
   }
-
   retval <- if (isTRUE(asvector)) {
     c(TestID = TestID, Eye = Laterality1, Format = eyeformat,
       as.vector(t(pointmatrix)))
