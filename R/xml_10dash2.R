@@ -1,4 +1,4 @@
-#' Extract point information from FORUM XML file contain data from a 30-2 test
+#' Extract point information from FORUM XML file contain data from a 10-2 test
 #'
 #' @param top Root node of an xml file
 #' @param asvector Determine whether the output is returned as a vector (TRUE, default) or as a matrix (FALSE).
@@ -11,10 +11,10 @@
 #'
 #' @examples
 #'    #exdatadir <- system.file('extdata', package = 'FORUMVF')
-#'   # parsed <- xml2::read_xml(sprintf("%s/testdata30dash2.xml", exdatadir))
+#'    #parsed <- xml2::read_xml(sprintf("%s/testdata10dash2.xml", exdatadir))
 #'    #root <- xml2::xml_root(parsed)
-#'    #xml_points30dash2(root)
-xml_points30dash2 <- function(
+#'   # xml_points10dash2(root)
+xml_points10dash2 <- function(
     top,
     asvector = TRUE,
     eyeformat = "OD",
@@ -42,7 +42,7 @@ xml_points30dash2 <- function(
     cat(sprintf("Test Pattern and Strategy: '%s', '%s'\n", TestPattern, TestStrategy))
   }
 
-  if (TestPattern != "Visual Field 30-2 Test Pattern") {
+  if (TestPattern != "Visual Field 10-2 Test Pattern") {
     if (verbose > 1) cat(sprintf("Use different function for pattern %s.\n", TestPattern))
     return(NULL)
   }
@@ -55,17 +55,17 @@ xml_points30dash2 <- function(
     cat(sprintf("Laterality 1 and 2: '%s', '%s'\n", Laterality1, Laterality2))
   }
 
-  # node with 76 children
+  # node with 68 children
   pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
-  if (xml2::xml_length(pointsequence) != 76L) {
+  if (xml2::xml_length(pointsequence) != 68L) {
     cat(sprintf("%3d points\n", xml2::xml_length(pointsequence)))
-    stop("Pattern 30-2 but not 76 points.")
+    stop("Pattern 10-2 but not 68 points.")
   }
 
   # extract information to matrix
   # nrow = 7 or 11
-  # ncol = 76
-  pointmatrix <- sapply(seq.int(76L), FUN = function(i)
+  # ncol = 68
+  pointmatrix <- sapply(seq.int(68L), FUN = function(i)
     xml_point(xml2::xml_child(pointsequence, i)))
 
   #########
@@ -120,51 +120,3 @@ xml_points30dash2 <- function(
 
   return(retval)
 }
-
-#we'll delete this. xml_point will be its own file. comment it out
-# xml_point <- function(
-#     pointroot,
-#     extra4fields = FALSE) {
-#   retvalnames <- if (isTRUE(extra4fields)) {
-#     # c("X", "Y", "Stim Res", "Sens Val", "Stim Res 2", "Sens Val 2", "ACSDV", "ACSDPV", "GDCSDF", "GDCSDV", "GDCSDPV")
-#     c("X", "Y", "Sens Val", "ACSDV", "GDCSDV", "ACSDPV", "GDCSDPV", "Stim Res", "Stim Res 2", "Sens Val 2", "GDCSDF")
-#   } else if (isFALSE(extra4fields)) {
-#     c("X", "Y", "Sens Val", "ACSDV", "GDCSDV", "ACSDPV", "GDCSDPV")
-#   } else stop("extra4fields must be TRUE or FALSE")
-#
-#   retval <- character(length(retvalnames))
-#   names(retval) <- retvalnames
-#
-#   retval["X"] <- text_of_first(pointroot, "00240090") # x-coordinate
-#   retval["Y"] <- text_of_first(pointroot, "00240091") # y-coordinate
-#   retval["Sens Val"] <- text_of_first(pointroot, "00240094") # Sensitivity value
-#
-#   # Normal Sequence
-#   # Are the normalized values present?
-#   normalparent <- xml2::xml_find_first(pointroot, ".//attr [@tag = '00240097']")
-#   if (!is.na(normalparent)) {
-#     normalroot <- xml2::xml_child(normalparent, 1)
-#
-#     retval["ACSDV"] <- text_of_first(normalroot, "00240092") # Age Corrected Sensitivity Deviation Value
-#     retval["ACSDPV"] <- text_of_first(normalroot, "00240100") # Age Corrected Sensitivity Deviation Probability Value
-#     retval["GDCSDV"] <- text_of_first(normalroot, "00240103") # Generalized Defect Corrected Sensitivity Deviation Value
-#     retval["GDCSDPV"] <- text_of_first(normalroot, "00240104") # Generalized Defect Corrected Sensitivity Deviation Probability Value
-#   } else {
-#     retval[c("ACSDV", "ACSDPV", "GDCSDV", "GDCSDPV")] <- NA_character_
-#   }
-#
-#   if (isTRUE(extra4fields)) {
-#     # RETEST
-#     retval["Stim Res"] <- text_of_first(pointroot, "00240093") # Stimulus result: SEEN vs NOT SEEN
-#     retval["Stim Res 2"] <- text_of_first(pointroot, "00240095") # Stimulus result: SEEN vs NOT SEEN
-#     retval["Sens Val 2"] <- text_of_first(pointroot, "00240096") # Sensitivity value
-#     retval["GDCSDF"] <- if (!is.na(normalparent)) {
-#       text_of_first(normalroot, "00240102") # Generalized Defect Corrected Sensitivity Deviation Flag
-#     } else {
-#       NA_character_
-#     }
-#   }
-#
-#   return(retval)
-# }
-

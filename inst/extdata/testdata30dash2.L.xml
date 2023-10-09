@@ -1,0 +1,2435 @@
+<?xml version="1.0" encoding="UTF-8"?><dicom>
+<!--File Meta Information Version-->
+<attr tag="00020001" vr="OB" len="2">00\01</attr>
+<!--Media Storage SOP Class UID-->
+<attr tag="00020002" vr="UI" len="28">1.1.111.11111.1.1.1.1.1.11.1</attr>
+<!--Media Storage SOP Instance UID-->
+<attr tag="00020003" vr="UI" len="64">012345689ABCDEF012345689ABCDEF012345689ABCDEF012345689ABCDEF</attr>
+<!--Transfer Syntax UID-->
+<attr tag="00020010" vr="UI" len="20">1.1.111.11111.1.1.1</attr>
+<!--Implementation Class UID-->
+<attr tag="00020012" vr="UI" len="20">1.1.111.1.11.1.1.11</attr>
+<!--Implementation Version Name-->
+<attr tag="00020013" vr="SH" len="16">FORUM 1.1.1.111</attr>
+<!--Source Application Entity Title-->
+<attr tag="00020016" vr="AE" len="16">PluginABCDEFGHIJ</attr>
+<!--Specific Character Set-->
+<attr tag="00080005" vr="CS" len="10">ISO_IR 192</attr>
+<!--Instance Creation Date-->
+<attr tag="00080012" vr="DA" len="8">20220628</attr>
+<!--Instance Creation Time-->
+<attr tag="00080013" vr="TM" len="10">120000.000</attr>
+<!--SOP Class UID-->
+<attr tag="00080016" vr="UI" len="28">1.1.111.11111.1.1.1.1.1.11.1</attr>
+<!--SOP Instance UID-->
+<attr tag="00080018" vr="UI" len="64">012345689ABCDEF012345689ABCDEF012345689ABCDEF012345689ABCDEF</attr>
+<!--Study Date-->
+<attr tag="00080020" vr="DA" len="8">20220608</attr>
+<!--Study Time-->
+<attr tag="00080030" vr="TM" len="10">120000.000</attr>
+<!--Accession Number-->
+<attr tag="00080050" vr="SH" len="0"/>
+<!--Modality-->
+<attr tag="00080060" vr="CS" len="4">OPV</attr>
+<!--Manufacturer-->
+<attr tag="00080070" vr="LO" len="18">Carl Zeiss Meditec</attr>
+<!--Referring Physician’s Name-->
+<attr tag="00080090" vr="PN" len="0"/>
+<!--Station Name-->
+<attr tag="00081010" vr="SH" len="12">ABCDEFGHIJKL</attr>
+<!--Series Description-->
+<attr tag="0008103E" vr="LO" len="4">OPV</attr>
+<!--Manufacturer’s Model Name-->
+<attr tag="00081090" vr="LO" len="24">FORUM Glaucoma Workplace</attr>
+<!--Referenced Instance Sequence-->
+<attr tag="0008114A" vr="SQ" len="-1">
+<item>
+<!--Referenced SOP Class UID-->
+<attr tag="00081150" vr="UI" len="26">1.1.111.11111.1.1.1.1.1.11</attr>
+<!--Referenced SOP Instance UID-->
+<attr tag="00081155" vr="UI" len="60">1.1.111.1.11.1.1.11.1.1.111111111111111.11111111111.1111111</attr>
+<!--Purpose of Reference Code Sequence-->
+<attr tag="0040A170" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="12">RAW DATA SRC</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="16">99CZM_PERIMETRY</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="26">CZM Perimetry Source Exam</attr>
+</item>
+</attr>
+</item>
+</attr>
+<!--Patient’s Name-->
+<attr tag="00100010" vr="PN" len="14">JOHN^DOE</attr>
+<!--Patient ID-->
+<attr tag="00100020" vr="LO" len="10">987654321</attr>
+<!--Issuer of Patient ID-->
+<attr tag="00100021" vr="LO" len="6">HFA 3</attr>
+<!--Patient’s Birth Date-->
+<attr tag="00100030" vr="DA" len="8">19000101</attr>
+<!--Patient’s Sex-->
+<attr tag="00100040" vr="CS" len="2">X</attr>
+<!--Device Serial Number-->
+<attr tag="00181000" vr="LO" len="10">123-45678</attr>
+<!--Software Version(s)-->
+<attr tag="00181020" vr="LO" len="28">1.1.1.111111-1111\\1.1.1.111</attr>
+<!--Contributing Equipment Sequence-->
+<attr tag="0018A001" vr="SQ" len="-1">
+<item>
+<!--Manufacturer-->
+<attr tag="00080070" vr="LO" len="18">Carl Zeiss Meditec</attr>
+<!--Institution Name-->
+<attr tag="00080080" vr="LO" len="28">GENERIC - Ophthalmology</attr>
+<!--Institution Address-->
+<attr tag="00080081" vr="ST" len="36">ANYWHERE USA</attr>
+<!--Station Name-->
+<attr tag="00081010" vr="SH" len="8">ABCDEFGHIJKL</attr>
+<!--Manufacturer’s Model Name-->
+<attr tag="00081090" vr="LO" len="6">HFA 3</attr>
+<!--Device Serial Number-->
+<attr tag="00181000" vr="LO" len="10">123-45678</attr>
+<!--Software Version(s)-->
+<attr tag="00181020" vr="LO" len="10">1.1.1.111</attr>
+<!--Date of Last Calibration-->
+<attr tag="00181200" vr="DA" len="8">20200924</attr>
+<!--Purpose of Reference Code Sequence-->
+<attr tag="0040A170" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">123456</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">DCM</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="22">Acquisition Equipment</attr>
+</item>
+</attr>
+</item>
+</attr>
+<!--Study Instance UID-->
+<attr tag="0020000D" vr="UI" len="48">0123456789ABCDEF0123456789ABCDEF0123456789AB</attr>
+<!--Series Instance UID-->
+<attr tag="0020000E" vr="UI" len="64">0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF</attr>
+<!--Study ID-->
+<attr tag="00200010" vr="SH" len="12">0123456789ABCDEF</attr>
+<!--Series Number-->
+<attr tag="00200011" vr="IS" len="2">1</attr>
+<!--Instance Number-->
+<attr tag="00200013" vr="IS" len="2">1</attr>
+<!--Laterality-->
+<attr tag="00200060" vr="CS" len="2">L</attr>
+<!--Visual Field Horizontal Extent-->
+<attr tag="00240010" vr="FL" len="4">30.0</attr>
+<!--Visual Field Vertical Extent-->
+<attr tag="00240011" vr="FL" len="4">30.0</attr>
+<!--Visual Field Shape-->
+<attr tag="00240012" vr="CS" len="6">CIRCLE</attr>
+<!--Maximum Stimulus Luminance-->
+<attr tag="00240018" vr="FL" len="4">3183.0989</attr>
+<!--Background Luminance-->
+<attr tag="00240020" vr="FL" len="4">10.026762</attr>
+<!--Stimulus Color Code Sequence-->
+<attr tag="00240021" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">G-A12B</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">SRT</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="6">White</attr>
+</item>
+</attr>
+<!--Background Illumination Color Code Sequence-->
+<attr tag="00240024" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">G-A12B</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">SRT</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="6">White</attr>
+</item>
+</attr>
+<!--Stimulus Area-->
+<attr tag="00240025" vr="FL" len="4">0.14748032</attr>
+<!--Stimulus Presentation Time-->
+<attr tag="00240028" vr="FL" len="4">200.0</attr>
+<!--Fixation Sequence-->
+<attr tag="00240032" vr="SQ" len="-1">
+<item>
+<!--Fixation Monitoring Code Sequence-->
+<attr tag="00240033" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">111844</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">DCM</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="22">Blind Spot Monitoring</attr>
+</item>
+</attr>
+<!--Fixation Checked Quantity-->
+<attr tag="00240035" vr="US" len="2">20</attr>
+<!--Patient Not Properly Fixated Quantity-->
+<attr tag="00240036" vr="US" len="2">3</attr>
+<!--Excessive Fixation Losses Data Flag-->
+<attr tag="00240039" vr="CS" len="4">YES</attr>
+<!--Excessive Fixation Losses-->
+<attr tag="00240040" vr="CS" len="2">NO</attr>
+</item>
+</attr>
+<!--Visual Field Catch Trial Sequence-->
+<attr tag="00240034" vr="SQ" len="-1">
+<item>
+<!--False Negatives Estimate Flag-->
+<attr tag="00240045" vr="CS" len="4">YES</attr>
+<!--False Negatives Estimate-->
+<attr tag="00240046" vr="FL" len="4">0.0</attr>
+<!--Negative Catch Trials Quantity-->
+<attr tag="00240048" vr="US" len="2">6</attr>
+<!--False Negatives Quantity-->
+<attr tag="00240050" vr="US" len="2">0</attr>
+<!--Excessive False Negatives Data Flag-->
+<attr tag="00240051" vr="CS" len="2">NO</attr>
+<!--False Positives Estimate Flag-->
+<attr tag="00240053" vr="CS" len="4">YES</attr>
+<!--False Positives Estimate-->
+<attr tag="00240054" vr="FL" len="4">0.0</attr>
+<!--Catch Trials Data Flag-->
+<attr tag="00240055" vr="CS" len="4">YES</attr>
+<!--Positive Catch Trials Quantity-->
+<attr tag="00240056" vr="US" len="2">0</attr>
+<!--False Positives Quantity-->
+<attr tag="00240060" vr="US" len="2">0</attr>
+<!--Excessive False Positives Data Flag-->
+<attr tag="00240061" vr="CS" len="4">YES</attr>
+<!--Excessive False Positives-->
+<attr tag="00240062" vr="CS" len="2">NO</attr>
+</item>
+</attr>
+<!--Presented Visual Stimuli Data Flag-->
+<attr tag="00240037" vr="CS" len="2">NO</attr>
+<!--Test Point Normals Data Flag-->
+<attr tag="00240057" vr="CS" len="4">YES</attr>
+<!--Test Point Normals Sequence-->
+<attr tag="00240058" vr="SQ" len="-1">
+<item>
+<!--Data Set Name-->
+<attr tag="00240306" vr="LO" len="30">HFA test point normative data</attr>
+<!--Data Set Version-->
+<attr tag="00240307" vr="LO" len="4">1.0</attr>
+<!--Data Set Source-->
+<attr tag="00240308" vr="LO" len="4">CZMI</attr>
+</item>
+</attr>
+<!--Visual Field Test Normals Flag-->
+<attr tag="00240063" vr="CS" len="4">YES</attr>
+<!--Results Normals Sequence-->
+<attr tag="00240064" vr="SQ" len="-1">
+<item>
+<!--Global Deviation Probability Normals Flag-->
+<attr tag="00240059" vr="CS" len="4">YES</attr>
+<!--Global Deviation From Normal-->
+<attr tag="00240066" vr="FL" len="4">1.68</attr>
+<!--Localized Deviation from Normal-->
+<attr tag="00240068" vr="FL" len="4">1.42</attr>
+<!--Local Deviation Probability Normals Flag-->
+<attr tag="00240072" vr="CS" len="4">YES</attr>
+<!--Global Deviation Probability Sequence-->
+<attr tag="00240083" vr="SQ" len="-1">
+<item>
+<!--Global Deviation Probability-->
+<attr tag="00240071" vr="FL" len="4">0.0</attr>
+<!--Algorithm Family Code Sequence-->
+<attr tag="0066002F" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="10">PERIMETRY</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="16">99CZM_PERIMETRY</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="24">CZM Perimetry Algorithms</attr>
+</item>
+</attr>
+<!--Algorithm Version-->
+<attr tag="00660031" vr="LO" len="4">1.0</attr>
+<!--Algorithm Name-->
+<attr tag="00660036" vr="LO" len="14">MD Probability</attr>
+</item>
+</attr>
+<!--Localized Deviation Probability Sequence-->
+<attr tag="00240085" vr="SQ" len="-1">
+<item>
+<!--Localized Deviation Probability-->
+<attr tag="00240073" vr="FL" len="4">0.0</attr>
+<!--Algorithm Family Code Sequence-->
+<attr tag="0066002F" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="10">PERIMETRY</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="16">99CZM_PERIMETRY</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="24">CZM Perimetry Algorithms</attr>
+</item>
+</attr>
+<!--Algorithm Version-->
+<attr tag="00660031" vr="LO" len="4">1.0</attr>
+<!--Algorithm Name-->
+<attr tag="00660036" vr="LO" len="16">PSD Probability</attr>
+</item>
+</attr>
+<!--Data Set Name-->
+<attr tag="00240306" vr="LO" len="36">HFA visual field test normative data</attr>
+<!--Data Set Version-->
+<attr tag="00240307" vr="LO" len="4">1.0</attr>
+<!--Data Set Source-->
+<attr tag="00240308" vr="LO" len="4">CZMI</attr>
+</item>
+</attr>
+<!--Age Corrected Sensitivity Deviation Algorithm Sequence-->
+<attr tag="00240065" vr="SQ" len="-1">
+<item>
+<!--Algorithm Family Code Sequence-->
+<attr tag="0066002F" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="10">PERIMETRY</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="16">99CZM_PERIMETRY</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="24">CZM Perimetry Algorithms</attr>
+</item>
+</attr>
+<!--Algorithm Version-->
+<attr tag="00660031" vr="LO" len="4">1.0</attr>
+<!--Algorithm Name-->
+<attr tag="00660036" vr="LO" len="16">Total Deviation</attr>
+</item>
+</attr>
+<!--Generalized Defect Sensitivity Deviation Algorithm Sequence-->
+<attr tag="00240067" vr="SQ" len="-1">
+<item>
+<!--Algorithm Family Code Sequence-->
+<attr tag="0066002F" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="10">PERIMETRY</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="16">99CZM_PERIMETRY</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="24">CZM Perimetry Algorithms</attr>
+</item>
+</attr>
+<!--Algorithm Version-->
+<attr tag="00660031" vr="LO" len="4">1.0</attr>
+<!--Algorithm Name-->
+<attr tag="00660036" vr="LO" len="18">Pattern Deviation</attr>
+</item>
+</attr>
+<!--Visual Field Mean Sensitivity-->
+<attr tag="00240070" vr="FL" len="4">30.154118</attr>
+<!--Short Term Fluctuation Calculated-->
+<attr tag="00240074" vr="CS" len="2">NO</attr>
+<!--Short Term Fluctuation Probability Calculated-->
+<attr tag="00240076" vr="CS" len="2">NO</attr>
+<!--Corrected Localized Deviation From Normal Calculated-->
+<attr tag="00240078" vr="CS" len="2">NO</attr>
+<!--Corrected Localized Deviation From Normal Probability Calculated-->
+<attr tag="00240080" vr="CS" len="2">NO</attr>
+<!--Foveal Sensitivity Measured-->
+<attr tag="00240086" vr="CS" len="2">NO</attr>
+<!--Visual Field Test Duration-->
+<attr tag="00240088" vr="FL" len="4">362.0</attr>
+<!--Visual Field Test Point Sequence-->
+<attr tag="00240089" vr="SQ" len="-1">
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">24.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">25.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">22.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">-1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-4.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">25.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">25.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-3.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">28.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-3.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">28.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">5.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">28.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">35.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">4.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">35.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">34.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">33.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">28.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">34.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">34.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">34.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">34.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-3.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">24.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-3.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-3.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">5.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">33.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">-1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-3.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">33.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">34.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-27.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-9.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">26.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">-3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-5.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">5.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">33.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-21.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-15.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">28.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">-1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-3.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">5.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-3.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">31.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">32.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">3.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-15.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-21.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">0.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-2.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">28.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-3.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">30.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">2.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Visual Field Test Point X-Coordinate-->
+<attr tag="00240090" vr="FL" len="4">-9.0</attr>
+<!--Visual Field Test Point Y-Coordinate-->
+<attr tag="00240091" vr="FL" len="4">-27.0</attr>
+<!--Stimulus Results-->
+<attr tag="00240093" vr="CS" len="4">SEEN</attr>
+<!--Sensitivity Value-->
+<attr tag="00240094" vr="FL" len="4">29.0</attr>
+<!--Visual Field Test Point Normals Sequence-->
+<attr tag="00240097" vr="SQ" len="-1">
+<item>
+<!--Age Corrected Sensitivity Deviation Value-->
+<attr tag="00240092" vr="FL" len="4">1.0</attr>
+<!--Age Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240100" vr="FL" len="4">0.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Flag-->
+<attr tag="00240102" vr="CS" len="4">YES</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Value-->
+<attr tag="00240103" vr="FL" len="4">-1.0</attr>
+<!--Generalized Defect Corrected Sensitivity Deviation Probability Value-->
+<attr tag="00240104" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+</item>
+</attr>
+<!--Minimum Sensitivity Value-->
+<attr tag="00240105" vr="FL" len="4">0.0</attr>
+<!--Blind Spot Localized-->
+<attr tag="00240106" vr="CS" len="4">YES</attr>
+<!--Blind Spot X-Coordinate-->
+<attr tag="00240107" vr="FL" len="4">-13.0</attr>
+<!--Blind Spot Y-Coordinate-->
+<attr tag="00240108" vr="FL" len="4">0.0</attr>
+<!--Measurement Laterality-->
+<attr tag="00240113" vr="CS" len="2">L</attr>
+<!--Ophthalmic Patient Clinical Information Left Eye Sequence-->
+<attr tag="00240114" vr="SQ" len="-1">
+<item>
+<!--Pupil Dilated-->
+<attr tag="0022000D" vr="CS" len="0"/>
+<!--Refractive Parameters Used on Patient Sequence-->
+<attr tag="00240112" vr="SQ" len="-1">
+<item>
+<!--Spherical Lens Power-->
+<attr tag="00220007" vr="FL" len="4">3.25</attr>
+<!--Cylinder Lens Power-->
+<attr tag="00220008" vr="FL" len="4">0.0</attr>
+<!--Cylinder Axis-->
+<attr tag="00220009" vr="FL" len="4">0.0</attr>
+</item>
+</attr>
+<!--Pupil Size-->
+<attr tag="00460044" vr="FD" len="0"/>
+</item>
+</attr>
+<!--Foveal Point Normative Data Flag-->
+<attr tag="00240117" vr="CS" len="4">YES</attr>
+<!--Screening Baseline Measured-->
+<attr tag="00240120" vr="CS" len="4">YES</attr>
+<!--Screening Baseline Measured Sequence-->
+<attr tag="00240122" vr="SQ" len="-1">
+<item>
+<!--Screening Baseline Type-->
+<attr tag="00240124" vr="CS" len="8">CENTRAL</attr>
+<!--Screening Baseline Value-->
+<attr tag="00240126" vr="FL" len="4">36.0</attr>
+</item>
+</attr>
+<!--Visual Field Global Results Index Sequence-->
+<attr tag="00240320" vr="SQ" len="-1">
+<item>
+<!--Data Observation Sequence-->
+<attr tag="00240325" vr="SQ" len="-1">
+<item>
+<!--Measurement Units Code Sequence-->
+<attr tag="004008EA" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="2">%</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">UCUM</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="8">percent</attr>
+</item>
+</attr>
+<!--Value Type-->
+<attr tag="0040A040" vr="CS" len="8">NUMERIC</attr>
+<!--Concept Name Code Sequence-->
+<attr tag="0040A043" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">111852</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">DCM</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="18">Visual Field Index</attr>
+</item>
+</attr>
+<!--Numeric Value-->
+<attr tag="0040A30A" vr="DS" len="4">100</attr>
+</item>
+</attr>
+<!--Index Normals Flag-->
+<attr tag="00240338" vr="CS" len="2">NO</attr>
+</item>
+<item>
+<!--Data Observation Sequence-->
+<attr tag="00240325" vr="SQ" len="-1">
+<item>
+<!--Value Type-->
+<attr tag="0040A040" vr="CS" len="4">CODE</attr>
+<!--Concept Name Code Sequence-->
+<attr tag="0040A043" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">111855</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">DCM</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="32">Glaucoma Hemifield Test Analysis</attr>
+</item>
+</attr>
+<!--Concept Code Sequence-->
+<attr tag="0040A168" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="8">M-00101</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">SRT</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="20">Within normal limits</attr>
+</item>
+</attr>
+</item>
+</attr>
+<!--Index Normals Flag-->
+<attr tag="00240338" vr="CS" len="2">NO</attr>
+</item>
+</attr>
+<!--Performed Procedure Step Start Date-->
+<attr tag="00400244" vr="DA" len="8">20220608</attr>
+<!--Performed Procedure Step Start Time-->
+<attr tag="00400245" vr="TM" len="10">125319.605</attr>
+<!--Performed Procedure Step Description-->
+<attr tag="00400254" vr="LO" len="4">OPV</attr>
+<!--Performed Protocol Code Sequence-->
+<attr tag="00400260" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">111802</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">DCM</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="30">Visual Field 30-2 Test Pattern</attr>
+<!--Protocol Context Sequence-->
+<attr tag="00400440" vr="SQ" len="-1">
+<item>
+<!--Value Type-->
+<attr tag="0040A040" vr="CS" len="4">CODE</attr>
+<!--Concept Name Code Sequence-->
+<attr tag="0040A043" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="8">R-408C3</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">SRT</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="10">Diagnostic</attr>
+</item>
+</attr>
+</item>
+</attr>
+</item>
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="6">111815</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">DCM</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="40">Visual Field SITA-Standard Test Strategy</attr>
+<!--Protocol Context Sequence-->
+<attr tag="00400440" vr="SQ" len="-1">
+<item>
+<!--Value Type-->
+<attr tag="0040A040" vr="CS" len="4">CODE</attr>
+<!--Concept Name Code Sequence-->
+<attr tag="0040A043" vr="SQ" len="-1">
+<item>
+<!--Code Value-->
+<attr tag="00080100" vr="SH" len="8">R-408C3</attr>
+<!--Coding Scheme Designator-->
+<attr tag="00080102" vr="SH" len="4">SRT</attr>
+<!--Code Meaning-->
+<attr tag="00080104" vr="LO" len="10">Diagnostic</attr>
+</item>
+</attr>
+</item>
+</attr>
+</item>
+</attr>
+<!--Private Creator Data Element-->
+<attr tag="03050010" vr="LO" len="46">99CZM_Hfa_OphthalmicVisualFieldStaticPerimetry</attr>
+<!--fixation_target_type-->
+<attr tag="03051001" vr="LO" len="8">Central</attr>
+<!--Private Creator Data Element-->
+<attr tag="22010010" vr="LO" len="22">99CZM_NIM_INTERNAL_01</attr>
+<!--iod_name_meta_info-->
+<attr tag="22011000" vr="LT" len="52">HfaOphthalmicVisualFieldStaticPerimetryMeasurements</attr>
+<!--czm_xml_version-->
+<attr tag="22011001" vr="LT" len="4">2.13</attr>
+<!--private_module_names_and_versions-->
+<attr tag="22011002" vr="LT" len="86">HfaVisualFieldStaticPerimetryTestResults\HfaVisualFieldStaticPerimetryTestReliability</attr>
+</dicom>
