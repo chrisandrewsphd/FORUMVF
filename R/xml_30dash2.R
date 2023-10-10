@@ -20,9 +20,7 @@ xml_points30dash2 <- function(
     eyeformat = "OD",
     dropXY = eyeformat %in% c("OD", "OS"),
     verbose = 0) {
-
   eyeformat <- match.arg(eyeformat, choices = c("OD", "OS", "file", "raw"))
-
   if (!("xml_node" %in% class(top))) stop("'top' must be class 'xml_node'.")
 
   ###########
