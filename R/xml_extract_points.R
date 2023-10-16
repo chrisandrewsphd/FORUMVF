@@ -46,8 +46,8 @@ xml_extract_points <- function(
     "Visual Field 24-2 Test Pattern" = 54L,
     "Visual Field 10-2 Test Pattern" = 68L,
     "Visual Field 30-2 Test Pattern" = 76L,
-    "Visual Field 60-4 Test Pattern" = NA_integer_,
-    "Visual Field 24-2C Test Pattern" = NA_integer_,
+    "Visual Field 60-4 Test Pattern" = 60L,
+    "Visual Field 24-2C Test Pattern" = 64L,
     NA_integer_)
 
   if (is.na(npoints)) {
@@ -84,6 +84,8 @@ xml_extract_points <- function(
   # ORDER #
   #########
   # order from top left to bottom right by horizontal rows
+  # Exception: 24-2C.
+  #   Order the 54 points of 24-2 first, followed by 10 extra points
 
   reorder <- if (
     ((eyeformat == "OD") && (Laterality1 == "R")) ||
@@ -118,6 +120,16 @@ xml_extract_points <- function(
     stop("What?")
   }
   pointmatrix <- pointmatrix[, reorder]
+
+  if (TestPattern == "Visual Field 24-2C Test Pattern") {
+    # organize the first 54 points as 24-2 and extra 10 top left to bottom right
+    reorder242c <- c(19, 20, 21, 22, 32, 33, 43, 44, 45, 50) # extras
+    # happen to be the same both OD and OS
+
+    pointmatrix <- cbind(
+      pointmatrix[, -reorder242c],
+      pointmatrix[,  reorder242c])
+  }
 
   if (isTRUE(dropXY)) {
     # pointmatrix <- pointmatrix[-c(1, 2), ]
