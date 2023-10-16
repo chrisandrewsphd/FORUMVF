@@ -3,5 +3,7 @@
 export(plot_visual_field)
 export(xml_dir_extract)
 export(xml_extract)
+export(xml_extract_points)
+export(xml_points10dash2)
 export(xml_points24dash2)
 export(xml_points30dash2)
