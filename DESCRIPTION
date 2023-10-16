@@ -15,3 +15,5 @@ Imports:
     graphics
 URL: https://github.com/chrisandrewsphd/FORUMVF
 BugReports: https://github.com/chrisandrewsphd/FORUMVF/issues
+Depends: 
+    R (>= 2.10)
