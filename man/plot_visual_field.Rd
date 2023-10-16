@@ -2,44 +2,50 @@
 % Please edit documentation in R/plot_visual_field.R
 \name{plot_visual_field}
 \alias{plot_visual_field}
-\title{Plot a HVF based on extracted matrix (or vector).}
+\title{Plot an HVF based on extracted matrix or vector.}
 \usage{
 plot_visual_field(
   mat,
   valrow = "Sens Val",
+  testpattern = "XY",
+  imagelaterality = "match",
   add = FALSE,
   probs = FALSE,
   textcolor = "black",
   strip.0 = TRUE,
   usedatarange = FALSE,
   addlegend = TRUE,
-  format = "XY"
+  eyestorageformat = "OD"
 )
 }
 \arguments{
-\item{mat}{character matrix containing 24-2 SITA Fast test}
+\item{mat}{Either a character matrix containing HVF test data, typically from \code{xml_extract_points(..., asvector = FALSE)} or a character vector, perhaps a subvector of \code{xml_extract_points(..., asvector = TRUE)}.}
 
-\item{valrow}{Name of the row in mat containing the values to plot}
+\item{valrow}{If \code{mat} is a matrix, the name of the row in \code{mat} containing the values to plot. If \code{mat} is a vector, \code{valrow} is ignored.}
 
-\item{add}{Should the values be added to an existing plot (TRUE) or a new plot (FALSE, default)?}
+\item{testpattern}{Format of data provided. The default ("XY") will plot everything based on rows "X" and "Y" of \code{mat}. If X and Y are not part of \code{mat}, the coordinates must be inferred from the test pattern. Possibilities currently are "24-2", "24-2C", "10-2", "30-2", and "60-4".}
 
-\item{probs}{Are the values coded probabilities (TRUE) or VF scores (FALSE, default)}
+\item{imagelaterality}{Should the HVF be plotted as OD or OS? If \code{testpattern == "XY"}, the possible options are "match" (default), which uses the provided X and Y, or "flip", which flips the image horizontally across the vertical axis. If \code{testpattern != "XY"}, the possible options are "OD" and "OS" (or "match" (default), in which case \code{eyestorageformat} will be used, which is almost certainly "OD").}
 
-\item{textcolor}{Color of text to be plotted. Default is "black".}
+\item{add}{Should the values be added to an existing plot (\code{TRUE}) or a new plot (\code{FALSE}, default)?}
 
-\item{strip.0}{Should trailing ".0" be removed before plotting? Default is TRUE.}
+\item{probs}{Are the values coded probabilities (\code{TRUE}) or VF scores (\code{FALSE}, default)?}
 
-\item{usedatarange}{Should the graph boundaries be determined by rows "X" and "Y" of the data (TRUE) or default values for 24-2 display (FALSE, default).}
+\item{textcolor}{Color of text to be plotted. Default is \code{"black"}.}
 
-\item{addlegend}{Should the graph have p-value legend at bottom. Default is TRUE (only relevant if probs is TRUE).}
+\item{strip.0}{Should trailing ".0" be removed before plotting? Default is \code{TRUE}.}
 
-\item{format}{Format of test. Default ("XY") is to plot everything based on rows "X" and "Y" of mat.  Other possibilities are "24-2 OD" and "24-2 OS" that can be used when "X" and "Y" are not provided.}
+\item{usedatarange}{Should the graph boundaries be determined by rows "X" and "Y" of the data (\code{TRUE}) or default values for typical display for the specified test pattern (\code{FALSE}, default)?}
+
+\item{addlegend}{Should the graph have a p-value legend at bottom. Default is \code{TRUE} (only relevant if \code{probs} is \code{TRUE}).}
+
+\item{eyestorageformat}{The default storage order in FORUMVF is OD, regardless of which eye is the subject of the test. Do not change this to "OS" except in very unusual circumstances. The format stores data generally from left to right, top to bottom. For the default "OD", this is Nasal to Temporal, Superior to Inferior.}
 }
 \value{
 invisible NULL. Plot produced as side effect.
 }
 \description{
-Plot a HVF based on extracted matrix (or vector).
+Plot an HVF based on extracted matrix or vector.
 }
 \examples{
    exdatadir <- system.file('extdata', package = 'FORUMVF')

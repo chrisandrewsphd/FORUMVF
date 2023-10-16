@@ -1,14 +1,16 @@
-#' Plot a HVF based on extracted matrix (or vector).
+#' Plot an HVF based on extracted matrix or vector.
 #'
-#' @param mat character matrix containing 24-2 SITA Fast test
-#' @param valrow Name of the row in mat containing the values to plot
-#' @param add Should the values be added to an existing plot (TRUE) or a new plot (FALSE, default)?
-#' @param probs Are the values coded probabilities (TRUE) or VF scores (FALSE, default)
-#' @param textcolor Color of text to be plotted. Default is "black".
-#' @param strip.0 Should trailing ".0" be removed before plotting? Default is TRUE.
-#' @param usedatarange Should the graph boundaries be determined by rows "X" and "Y" of the data (TRUE) or default values for 24-2 display (FALSE, default).
-#' @param addlegend Should the graph have p-value legend at bottom. Default is TRUE (only relevant if probs is TRUE).
-#' @param format Format of test. Default ("XY") is to plot everything based on rows "X" and "Y" of mat.  Other possibilities are "24-2 OD" and "24-2 OS" that can be used when "X" and "Y" are not provided.
+#' @param mat Either a character matrix containing HVF test data, typically from \code{xml_extract_points(..., asvector = FALSE)} or a character vector, perhaps a subvector of \code{xml_extract_points(..., asvector = TRUE)}.
+#' @param valrow If \code{mat} is a matrix, the name of the row in \code{mat} containing the values to plot. If \code{mat} is a vector, \code{valrow} is ignored.
+#' @param testpattern Format of data provided. The default ("XY") will plot everything based on rows "X" and "Y" of \code{mat}. If X and Y are not part of \code{mat}, the coordinates must be inferred from the test pattern. Possibilities currently are "24-2", "24-2C", "10-2", "30-2", and "60-4".
+#' @param imagelaterality Should the HVF be plotted as OD or OS? If \code{testpattern == "XY"}, the possible options are "match" (default), which uses the provided X and Y, or "flip", which flips the image horizontally across the vertical axis. If \code{testpattern != "XY"}, the possible options are "OD" and "OS" (or "match" (default), in which case \code{eyestorageformat} will be used, which is almost certainly "OD").
+#' @param add Should the values be added to an existing plot (\code{TRUE}) or a new plot (\code{FALSE}, default)?
+#' @param probs Are the values coded probabilities (\code{TRUE}) or VF scores (\code{FALSE}, default)?
+#' @param textcolor Color of text to be plotted. Default is \code{"black"}.
+#' @param strip.0 Should trailing ".0" be removed before plotting? Default is \code{TRUE}.
+#' @param usedatarange Should the graph boundaries be determined by rows "X" and "Y" of the data (\code{TRUE}) or default values for typical display for the specified test pattern (\code{FALSE}, default)?
+#' @param addlegend Should the graph have a p-value legend at bottom. Default is \code{TRUE} (only relevant if \code{probs} is \code{TRUE}).
+#' @param eyestorageformat The default storage order in FORUMVF is OD, regardless of which eye is the subject of the test. Do not change this to "OS" except in very unusual circumstances. The format stores data generally from left to right, top to bottom. For the default "OD", this is Nasal to Temporal, Superior to Inferior.
 #'
 #' @return invisible NULL. Plot produced as side effect.
 #' @export
@@ -31,44 +33,103 @@
 
 plot_visual_field <- function(
     mat, valrow = "Sens Val",
+    testpattern = "XY",
+    imagelaterality = "match",
     add = FALSE, probs = FALSE, textcolor = "black", strip.0 = TRUE,
-    usedatarange = FALSE, addlegend = TRUE,
-    format = "XY") {
+    usedatarange = FALSE,
+    addlegend = TRUE,
+    eyestorageformat = "OD") {
 
-  format <- match.arg(format, c("XY", "24-2 OD", "24-2 OS"))
+  eyestorageformat <- match.arg(
+    eyestorageformat,
+    choices = c("OD", "OS"))
+  if (eyestorageformat != "OD") warning("Not using OD eye storage format. Beware.")
 
-  if (format == "XY") {
+  imagelaterality <- match.arg(
+    imagelaterality,
+    choices = c("match", "flip", "OD", "OS"))
+
+  testpattern <- match.arg(
+    testpattern,
+    choices =
+      c("XY", "24-2", "24-2C", "10-2", "30-2", "60-4"))
+
+  if (testpattern == "XY") {
     xx <- as.numeric(mat["X", ])
+    if (imagelaterality == "flip") xx <- -xx
     yy <- as.numeric(mat["Y", ])
-  } else if (format == "24-2 OD") {
-    xx <- c(seq(-9, 9, 6), seq(-15, 15, 6), seq(-21, 21, 6), seq(-27, 21, 6),
-            seq(-27, 21, 6), seq(-21, 21, 6), seq(-15, 15, 6), seq(-9, 9, 6))
-    yy <- rep(c(21, 15, 9, 3, -3, -9, -15, -21), times = c(4, 6, 8, 9, 9, 8, 6, 4))
-  } else if (format == "24-2 OS") {
-    xx <- c(seq(-9, 9, 6), seq(-15, 15, 6), seq(-21, 21, 6), seq(-21, 27, 6),
-            seq(-21, 27, 6), seq(-21, 21, 6), seq(-15, 15, 6), seq(-9, 9, 6))
-    yy <- rep(c(21, 15, 9, 3, -3, -9, -15, -21), times = c(4, 6, 8, 9, 9, 8, 6, 4))
+  } else if (testpattern %in% names(HVF_XY_defaults[[eyestorageformat]])) {
+    xx <- HVF_XY_defaults[[eyestorageformat]][[testpattern]][["X"]]
+    yy <- HVF_XY_defaults[[eyestorageformat]][[testpattern]][["Y"]]
+  } else {
+    stop(sprintf("testpattern %s does not have XY defaults stored.", testpattern))
   }
 
-  vv <- mat[valrow, ]
+  vv <- if (is.matrix(mat)) {
+    mat[valrow, ]
+  } else {
+    mat
+  }
 
   if (isTRUE(usedatarange)) {
     xlim <- range(xx)
     ylim <- range(yy)
   } else if (isFALSE(usedatarange)) {
-    xlim <- c(-30, 30)
-    ylim <- c(-30, 30)
-  } else stop("usedatarange must be TRUE or FALSE")
+    switch(
+      testpattern,
+      "24-2" = {
+        xlim <- c(-30, 30)
+        ylim <- c(-30, 30)
+      },
+      "24-2C" = {
+        xlim <- c(-30, 30)
+        ylim <- c(-30, 30)
+      },
+      "10-2" = {
+        xlim <- c(-10, 10)
+        ylim <- c(-10, 10)
+      },
+      "30-2" = {
+        xlim <- c(-30, 30)
+        ylim <- c(-30, 30)
+      },
+      "60-2" = {
+        xlim <- c(-60, 60)
+        ylim <- c(-60, 60)
+      },
+      "XY" = {
+        xlim <- range(xx)
+        ylim <- range(yy)
+      },
+      {
+        warning(sprintf("testpattern %s does not have default data range defined. Using range of X and Y.", testpattern))
+        xlim <- range(xx)
+        ylim <- range(yy)
+      }
+    )
+  } else stop("'usedatarange' must be TRUE or FALSE")
 
+  # set up canvas (unless adding to an existing plot)
   if (isFALSE(add)) {
     plot(
       NA, asp = 1, bty = "n",
       xlim = xlim, xlab = "", xaxt = "n",
       ylim = ylim, ylab = "", yaxt = "n")
-    graphics::axis(1, at = seq(-30, 30, 10), labels = FALSE, pos = 0)
-    graphics::axis(2, at = seq(-30, 30, 10), labels = FALSE, pos = 0)
+    for (i in c(1,2)) {
+      graphics::axis(
+        i, labels = FALSE, pos = 0,
+        at = switch(
+          testpattern,
+          "24-2" = seq(-27, 27, 6),
+          "24-2C" = seq(-27, 27, 6),
+          "30-2" = seq(-27, 27, 6),
+          "10-2" = seq(-9, 9, 2),
+          "60-4" = seq(-54, 54, 12),
+          "XY" = NULL))
+    }
   }
 
+  # draw
   if (isFALSE(probs)) graphics::text(
     xx, yy,
     if (isTRUE(strip.0)) gsub(".0", "", vv, fixed = TRUE) else vv,
@@ -94,7 +155,7 @@ plot_visual_field <- function(
         bty = "n")
     }
   }
-  else stop("probs must be TRUE or FALSE")
+  else stop("'probs' must be TRUE or FALSE")
 
   return(invisible(NULL))
 }
