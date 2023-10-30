@@ -1,7 +1,7 @@
 Package: FORUMVF
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.1
+Version: 0.2.0
 Author: Chris Andrews
 Maintainer: Chris Andrews <chrisaa@umich.edu>
 Description: Convert XML file produced by FORUM to a character vector.

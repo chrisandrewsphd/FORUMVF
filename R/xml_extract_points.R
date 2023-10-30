@@ -7,7 +7,7 @@
 #' @param asvector Determine whether the output is returned as a vector (\code{TRUE}, default) or as a matrix (FALSE). \code{FALSE} can be useful for debugging.
 #' @param verbose Control level of printing to console. The default (0) is no printing; larger values may produce more printing.
 #'
-#' @return a character vector with 6 components extracted from the XML and all points
+#' @return a character vector (if \code{asvector == TRUE}) with 4 components (TestID, TestPattern, Eye, and Format) extracted from the XML and all points if the TestPattern is recognized; or (if \code{asvector == FALSE}) a character matrix with one column for each point.
 #' @export
 #'
 #' @examples
@@ -51,8 +51,8 @@ xml_extract_points <- function(
     NA_integer_)
 
   if (is.na(npoints)) {
-    if (verbose > 1) cat(sprintf("Use different function for pattern %s.\n", TestPattern))
-    return(NULL)
+    if (verbose > 1) cat(sprintf("Test Pattern '%s' not recognized.\n", TestPattern))
+    # return(NULL)
   }
 
   # ( 5) Laterality: 00200060 and 00240113:Measurement Laterality
@@ -66,85 +66,96 @@ xml_extract_points <- function(
   # node with 54/70/60/... children
   pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
 
-  if (xml2::xml_length(pointsequence) != npoints) {
-    cat(sprintf("%3d points\n", xml2::xml_length(pointsequence)))
-    stop(sprintf("%s but %d points.", TestPattern, xml2::xml_length(pointsequence)))
-  }
+  if (!is.na(npoints)) {
+    if (xml2::xml_length(pointsequence) != npoints) {
+      cat(sprintf("%3d points\n", xml2::xml_length(pointsequence)))
+      stop(sprintf("%s but %d points.", TestPattern, xml2::xml_length(pointsequence)))
+    }
 
-  # extract information to matrix
-  # nrow = 7 or 11
-  # ncol = npoints
-  pointmatrix <- sapply(seq.int(npoints), FUN = function(i) {
-    xml_point(
-      pointroot = xml2::xml_child(pointsequence, i),
-      extra4fields = extra4fields)
+    # extract information to matrix
+    # nrow = 7 or 11
+    # ncol = npoints
+    pointmatrix <- sapply(seq.int(npoints), FUN = function(i) {
+      xml_point(
+        pointroot = xml2::xml_child(pointsequence, i),
+        extra4fields = extra4fields)
     })
 
-  #########
-  # ORDER #
-  #########
-  # order from top left to bottom right by horizontal rows
-  # Exception: 24-2C.
-  #   Order the 54 points of 24-2 first, followed by 10 extra points
+    #########
+    # ORDER #
+    #########
+    # order from top left to bottom right by horizontal rows
+    # Exception: 24-2C.
+    #   Order the 54 points of 24-2 first, followed by 10 extra points
 
-  reorder <- if (
-    ((eyeformat == "OD") && (Laterality1 == "R")) ||
-    ((eyeformat == "OS") && (Laterality1 == "L"))) {
-    # no flip
-    order(
-      as.numeric(pointmatrix["Y", ]),
-      as.numeric(pointmatrix["X", ]),
-      method = "radix",
-      decreasing = c(TRUE, FALSE))
-  } else if (
-    ((eyeformat == "OD") && (Laterality1 == "L")) ||
-    ((eyeformat == "OS") && (Laterality1 == "R"))) {
-    # flip
-    order(
-      as.numeric(pointmatrix["Y", ]),
-      as.numeric(pointmatrix["X", ]),
-      method = "radix",
-      decreasing = c(TRUE, TRUE))
-  } else if (eyeformat == "file") {
-    # no flip
-    order(
-      as.numeric(pointmatrix["Y", ]),
-      as.numeric(pointmatrix["X", ]),
-      method = "radix",
-      decreasing = c(TRUE, FALSE))
-  } else if (eyeformat == "raw") {
-    seq.int(ncol(pointmatrix))
-  } else {
-    print(eyeformat)
-    print(Laterality1)
-    stop("What?")
-  }
-  pointmatrix <- pointmatrix[, reorder]
+    reorder <- if (
+      ((eyeformat == "OD") && (Laterality1 == "R")) ||
+      ((eyeformat == "OS") && (Laterality1 == "L"))) {
+      # no flip
+      order(
+        as.numeric(pointmatrix["Y", ]),
+        as.numeric(pointmatrix["X", ]),
+        method = "radix",
+        decreasing = c(TRUE, FALSE))
+    } else if (
+      ((eyeformat == "OD") && (Laterality1 == "L")) ||
+      ((eyeformat == "OS") && (Laterality1 == "R"))) {
+      # flip
+      order(
+        as.numeric(pointmatrix["Y", ]),
+        as.numeric(pointmatrix["X", ]),
+        method = "radix",
+        decreasing = c(TRUE, TRUE))
+    } else if (eyeformat == "file") {
+      # no flip
+      order(
+        as.numeric(pointmatrix["Y", ]),
+        as.numeric(pointmatrix["X", ]),
+        method = "radix",
+        decreasing = c(TRUE, FALSE))
+    } else if (eyeformat == "raw") {
+      seq.int(ncol(pointmatrix))
+    } else {
+      print(eyeformat)
+      print(Laterality1)
+      stop("What?")
+    }
+    pointmatrix <- pointmatrix[, reorder]
 
-  if (TestPattern == "Visual Field 24-2C Test Pattern") {
-    # organize the first 54 points as 24-2 and extra 10 top left to bottom right
-    reorder242c <- c(19, 20, 21, 22, 32, 33, 43, 44, 45, 50) # extras
-    # happen to be the same both OD and OS
+    if (TestPattern == "Visual Field 24-2C Test Pattern") {
+      # organize the first 54 points as 24-2 and extra 10 top left to bottom right
+      reorder242c <- c(19, 20, 21, 22, 32, 33, 43, 44, 45, 50) # extras
+      # happen to be the same both OD and OS
 
-    pointmatrix <- cbind(
-      pointmatrix[, -reorder242c],
-      pointmatrix[,  reorder242c])
-  }
+      pointmatrix <- cbind(
+        pointmatrix[, -reorder242c],
+        pointmatrix[,  reorder242c])
+    }
 
-  if (isTRUE(dropXY)) {
-    # pointmatrix <- pointmatrix[-c(1, 2), ]
-    pointmatrix <- pointmatrix[setdiff(rownames(pointmatrix), c("X", "Y")), ]
+    if (isTRUE(dropXY)) {
+      # pointmatrix <- pointmatrix[-c(1, 2), ]
+      pointmatrix <- pointmatrix[setdiff(rownames(pointmatrix), c("X", "Y")), ]
+    }
+
+  } else { # unknown test pattern
+    pointmatrix <- matrix(NA_character_, nrow = 0, ncol = 0)
   }
 
   retval <- if (isTRUE(asvector)) {
-    c(TestID = TestID, Eye = Laterality1, Format = eyeformat,
+    c(TestID = TestID,
+      TestPattern = TestPattern,
+      Eye = Laterality1,
+      Format = eyeformat,
       as.vector(t(pointmatrix)))
   } else if (isFALSE(asvector)) {
     attr(pointmatrix, "TestID") <- TestID
+    attr(pointmatrix, "TestPattern") <- TestPattern
     attr(pointmatrix, "Eye") <- Laterality1
     attr(pointmatrix, "Format") <- eyeformat
     pointmatrix
   } else stop("'asvector' must be TRUE or FALSE.")
+
+  # attr(retval, "TestPattern") <- TestPattern
 
   return(retval)
 }

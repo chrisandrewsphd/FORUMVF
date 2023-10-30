@@ -27,7 +27,7 @@ xml_extract_points(
 \item{verbose}{Control level of printing to console. The default (0) is no printing; larger values may produce more printing.}
 }
 \value{
-a character vector with 6 components extracted from the XML and all points
+a character vector (if \code{asvector == TRUE}) with 4 components (TestID, TestPattern, Eye, and Format) extracted from the XML and all points if the TestPattern is recognized; or (if \code{asvector == FALSE}) a character matrix with one column for each point.
 }
 \description{
 Extract point information from FORUM XML file
