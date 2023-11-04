@@ -69,8 +69,12 @@ xml_extract_points <- function(
   npoints <- xml2::xml_length(pointsequence)
 
   if (!is.na(expectedpoints) && (npoints != expectedpoints)) {
+    cat(sprintf("TestID = %s\n", TestID))
+    cat(sprintf("TestPattern = %s\n", TestPattern))
     cat(sprintf("%3d points observed but %3d points expected\n", npoints, expectedpoints))
-    stop(sprintf("%s but %d points.", TestPattern, npoints))
+    warning(sprintf("%s: %s but %d points.", TestID, TestPattern, npoints))
+    TestPattern <- "Malformed"
+    expectedpoints <- NA_integer_ # no points will be extracted
   }
 
   if (!is.na(expectedpoints)) {
@@ -120,6 +124,7 @@ xml_extract_points <- function(
     } else {
       print(eyeformat)
       print(Laterality1)
+      print(TestID)
       stop("What?")
     }
     pointmatrix <- pointmatrix[, reorder]
