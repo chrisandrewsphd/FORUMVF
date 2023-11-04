@@ -44,6 +44,9 @@ xml_dir_extract <- function(
 
   # list of xml documents
   startTime <- Sys.time()
+  if (isTRUE(verbose > 0)) {
+    cat(sprintf("Started reading at %s\n", startTime))
+  }
   st1 <-  system.time(
     list_parsed <- sapply(
       xmlfilenames,
@@ -51,7 +54,6 @@ xml_dir_extract <- function(
       simplify = FALSE,
       USE.NAMES = TRUE))
   if (isTRUE(verbose > 0)) {
-    cat(sprintf("Started reading at %s\n", startTime))
     cat("Reading Duration", st1[1:3], "\n")
   }
 
