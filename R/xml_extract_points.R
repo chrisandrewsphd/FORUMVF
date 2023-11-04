@@ -145,7 +145,7 @@ xml_extract_points <- function(
     ptvector <- as.vector(t(pointmatrix))
     names(ptvector) <- as.vector(
       outer(
-        seq.int(ncol(pointmatrix)),
+        seq.int(length.out = ncol(pointmatrix)),
         c("s", "td", "pd", "tdp", "pdp"),
         FUN = function(x, y) sprintf("%s%d", y, x)))
 
@@ -159,10 +159,9 @@ xml_extract_points <- function(
     attr(pointmatrix, "TestPattern") <- TestPattern
     attr(pointmatrix, "Eye") <- Laterality1
     attr(pointmatrix, "Format") <- eyeformat
+
     pointmatrix
   } else stop("'asvector' must be TRUE or FALSE.")
-
-  # attr(retval, "TestPattern") <- TestPattern
 
   return(retval)
 }
