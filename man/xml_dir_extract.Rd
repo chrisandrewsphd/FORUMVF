@@ -4,12 +4,20 @@
 \alias{xml_dir_extract}
 \title{Extract visual field values from all xml files in a directory}
 \usage{
-xml_dir_extract(xmldir, recursive = FALSE, comment = FALSE, verbose = 0)
+xml_dir_extract(
+  xmldir,
+  recursive = FALSE,
+  csvdir = NULL,
+  comment = FALSE,
+  verbose = 0
+)
 }
 \arguments{
 \item{xmldir}{(character) Name of directory containing xml files from FORUM}
 
 \item{recursive}{(logical) Should sub directories be included? Default is FALSE}
+
+\item{csvdir}{(character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.}
 
 \item{comment}{(logical) Should text comment and patient comment be extracted? Default is FALSE.}
 
