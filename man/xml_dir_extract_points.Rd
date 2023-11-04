@@ -7,6 +7,7 @@
 xml_dir_extract_points(
   xmldir,
   recursive = FALSE,
+  csvdir = NULL,
   eyeformat = "OD",
   dropXY = eyeformat \%in\% c("OD", "OS"),
   extra4fields = FALSE,
@@ -17,6 +18,8 @@ xml_dir_extract_points(
 \item{xmldir}{(character) Name of directory containing xml files from FORUM}
 
 \item{recursive}{(logical) Should sub directories be included? Default is FALSE}
+
+\item{csvdir}{(character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.}
 
 \item{eyeformat}{See `xml_extract_points()`. Leave as \code{"OD"} (default).}
 
