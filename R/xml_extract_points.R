@@ -41,7 +41,7 @@ xml_extract_points <- function(
     cat(sprintf("Test Pattern and Strategy: '%s', '%s'\n", TestPattern, TestStrategy))
   }
 
-  npoints <- switch(
+  expectedpoints <- switch(
     TestPattern,
     "Visual Field 24-2 Test Pattern" = 54L,
     "Visual Field 10-2 Test Pattern" = 68L,
@@ -50,8 +50,8 @@ xml_extract_points <- function(
     "Visual Field 24-2C Test Pattern" = 64L,
     NA_integer_)
 
-  if (is.na(npoints)) {
-    if (verbose > 1) cat(sprintf("Test Pattern '%s' not recognized.\n", TestPattern))
+  if (is.na(expectedpoints)) {
+    if (verbose > 1) cat(sprintf("Non-standard test: '%s'. Points not read.\n", TestPattern))
     # return(NULL)
   }
 
@@ -66,16 +66,18 @@ xml_extract_points <- function(
   # node with 54/70/60/... children
   pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
 
-  if (!is.na(npoints)) {
-    if (xml2::xml_length(pointsequence) != npoints) {
-      cat(sprintf("%3d points\n", xml2::xml_length(pointsequence)))
-      stop(sprintf("%s but %d points.", TestPattern, xml2::xml_length(pointsequence)))
-    }
+  npoints <- xml2::xml_length(pointsequence)
 
+  if (!is.na(expectedpoints) && (npoints != expectedpoints)) {
+    cat(sprintf("%3d points observed but %3d points expected\n", npoints, expectedpoints))
+    stop(sprintf("%s but %d points.", TestPattern, npoints))
+  }
+
+  if (!is.na(expectedpoints)) {
     # extract information to matrix
     # nrow = 7 or 11
     # ncol = npoints
-    pointmatrix <- sapply(seq.int(npoints), FUN = function(i) {
+    pointmatrix <- sapply(seq.int(length.out = npoints), FUN = function(i) {
       xml_point(
         pointroot = xml2::xml_child(pointsequence, i),
         extra4fields = extra4fields)
