@@ -21,17 +21,7 @@ xml_dir_extract_points <- function(
     extra4fields = FALSE,
     verbose = 0) {
 
-  if (is.null(csvdir)) {
-    if (verbose > 0) cat("'csvdir' not specified. CSV data will not be exported/written.\n")
-  } else if (length(csvdir) != 1) {
-    cat("'csvdir' must be NULL or have length 1. CSV data will not be exported/written.\n")
-    csvdir <- NULL
-  } else if (isTRUE(dir.exists(csvdir))) {
-    if (verbose > 0) cat(sprintf("CSV data will be written to %s\n", csvdir))
-  } else {
-    cat(sprintf("Directory %s does not exist. CSV data will not be exported/written\n.", csvdir))
-    csvdir <- NULL
-  }
+  csvdir <- csvdircheck(csvdir = csvdir, verbose = verbose)
 
   list_top <- xml_dir_explode(
     xmldir = xmldir,
