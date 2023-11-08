@@ -33,40 +33,10 @@ xml_dir_extract_points <- function(
     csvdir <- NULL
   }
 
-  # all xml filenames in directory xmldir
-  xmlfilenames <- grep(
-    "\\.xml$",
-    dir(xmldir, full.names = TRUE, recursive = recursive),
-    value = TRUE)
-
-  if (isTRUE(verbose > 0)) {
-    cat(sprintf("%d filenames found in %s.\n", length(xmlfilenames), xmldir))
-    if (isTRUE(verbose > 1)) {
-      print(utils::head(xmlfilenames))
-    }
-  }
-
-  # list of xml documents
-  startTime <- Sys.time()
-  if (isTRUE(verbose > 0)) {
-    cat(sprintf("Started reading at %s\n", startTime))
-  }
-  st1 <-  system.time(
-    list_parsed <- sapply(
-      xmlfilenames,
-      xml2::read_xml,
-      simplify = FALSE,
-      USE.NAMES = TRUE))
-  if (isTRUE(verbose > 0)) {
-    cat("Reading Duration", st1[1:3], "\n")
-  }
-
-  # list of root nodes
-  list_top <- sapply(
-    list_parsed,
-    xml2::xml_root,
-    simplify = FALSE,
-    USE.NAMES = TRUE)
+  list_top <- xml_dir_explode(
+    xmldir = xmldir,
+    recursive = recursive,
+    verbose = verbose)
 
   # list
   # nelements = number of files
