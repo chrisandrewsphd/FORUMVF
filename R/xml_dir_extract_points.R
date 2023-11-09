@@ -28,6 +28,11 @@ xml_dir_extract_points <- function(
     recursive = recursive,
     verbose = verbose)
 
+  if (length(list_top) == 0) {
+    cat(sprintf("no xml files found in %s\n", xmldir))
+    return(invisible(NULL))
+  }
+
   # list
   # nelements = number of files
   # ncolumns differs based on type of test

@@ -24,11 +24,17 @@ xml_dir_extract <- function(
     recursive = recursive,
     verbose = verbose)
 
+  if (length(list_top) == 0) {
+    cat(sprintf("no xml files found in %s\n", xmldir))
+    return(invisible(NULL))
+  }
+
   # character matrix
   # nrows = number of files
   # ncolumns ~ 70
   st2 <- system.time(
     mat <- t(sapply(list_top, xml_extract, comment = comment)))
+
   if (isTRUE(verbose > 0)) {
     cat("Processing Duration", st2[1:3], "\n")
   }
