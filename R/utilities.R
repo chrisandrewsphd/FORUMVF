@@ -96,8 +96,9 @@ text_of_mrn <- function(node, tag = '00100020', verbose = 0) {
     # if tie, return value with #digits closest to 9
     # after issuing warning if more than one value
     else {
-      warning(sprintf("Multiple values are not unique for tag %s.", tag))
-      if (verbose > 0) print(tab)
+      # warning(sprintf("Multiple values are not unique for tag %s.", tag))
+      if (verbose > 0) cat(sprintf("Multiple values are not unique for tag %s.", tag))
+      if (verbose > 1) print(tab)
 
       tab1 <- tab[tab == tab[1]] # select all the most common
       if (length(tab1) == 1) {
