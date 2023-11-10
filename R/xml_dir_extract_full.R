@@ -67,7 +67,11 @@ xml_dir_extract_full <- function(
     seq_along(lst),
     FUN = function(i) {
       if (mat[i,"TestID"] != lst[[i]]["TestID"]) stop("TestID mismatch")
-      if (mat[i,"TestPattern"] != lst[[i]]["TestPattern"]) stop("TestPattern mismatch")
+      if (mat[i,"TestPattern"] != lst[[i]]["TestPattern"]) {
+        if (lst[[i]]["TestPattern"] == "Malformed") # number of points wrong
+          mat[i,"TestPattern"] <- "Malformed"
+        else stop("TestPattern mismatch")
+      }
       c(mat[i,], lst[[i]][-match(c("TestID", "TestPattern"), names(lst[[i]]))])
     }
   )
