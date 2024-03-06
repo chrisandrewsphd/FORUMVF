@@ -14,10 +14,13 @@ xml_dir_explode <- function(
     verbose = 0) {
 
   # all xml filenames in directory xmldir
-  xmlfilenames <- grep(
-    "\\.xml$",
-    dir(xmldir, full.names = TRUE, recursive = recursive),
-    value = TRUE)
+  # xmlfilenames <- grep(
+  #   "\\.xml$",
+  #   dir(xmldir, full.names = TRUE, recursive = recursive),
+  #   value = TRUE)
+  xmlfilenames <- dir(
+    xmldir, full.names = TRUE, recursive = recursive,
+    pattern = "\\.xml$", ignore.case = TRUE)
 
   if (isTRUE(verbose > 0)) {
     cat(sprintf("%d filenames found in %s.\n", length(xmlfilenames), xmldir))
