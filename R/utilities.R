@@ -225,7 +225,7 @@ computeage <- function(textdate0, textdate1) {
 
 #' Check form/existence of csvdir
 #'
-#' @param csvdir proposed directory to write to (character vector of length 1)
+#' @param csvdir proposed existing directory to write to (character vector of length 1)
 #' @param verbose level of output to console
 #'
 #' @return either NULL or character string of existing directory to write to
@@ -241,6 +241,6 @@ csvdircheck <- function(csvdir, verbose = 0) {
     return(csvdir)
   } else {
     cat(sprintf("Directory %s does not exist. CSV data will not be exported/written\n.", csvdir))
-    return(csvdir)
+    return(NULL)
   }
 }
