@@ -79,7 +79,42 @@ HVF_XY_defaults <- list(
         by = 12L)),
       Y = rep(
         c(42L, 30L, 18L, 6L, -6L, -18L, -30L, -42L, -54L),
-        times = c(6, 10, 6, 6, 6, 6, 8, 8, 4)))),
+        times = c(6, 10, 6, 6, 6, 6, 8, 8, 4))),
+    "S36" = list(
+      npoints = 36L,
+      blindspotindices = integer(0),
+      X = c(
+        -20L, 0L, 20L,
+        -30L, -20L, 0L, 20L, 30L,
+        -30L, 0L, 30L, -20L, 20L,
+        -40L, 0L, 40L, -20L, 20L,
+        -40L, -10L, 10L, 40L,
+        -20L, 0L, 20L,
+        -40L, 40L,
+        -50L, -30L, -10L, 10L, 30L, 50L,
+        -20L, 0L, 20L),
+      Y = rep(
+        c(52L, 44L, 36L, 32L, 24L, 20L, 15L, 10L, 5L, 0L, -10L),
+        times = c(3L, 5L, 3L, 2L, 3L, 2L, 4L, 3L, 2L, 6L, 3L))),
+    "EM100" = list( # Visual Field Esterman Monocular Test Pattern
+      npoints = 100L,
+      blindspotindices = integer(0), # ???
+      X = c(
+        -23L, 23L,
+        -41L, -17L, -6L, 6L, 17L, 34L, 57L,
+        -51L, -33L, -20L, -10L, -3L, 3L, 10L, 20L, 30L, 42L, 57L, 73L,
+        -52L, -33L, -20L, -13L, -8L, 8L, 13L, 20L, 30L, 42L, 57L, 75L,
+        -52L, -33L, -20L, -13L, -8L, 8L, 13L, 20L, 30L, 42L, 57L, 76L,
+        -51L, -33L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 30L, 42L, 57L, 76L,
+        -46L, -33L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 30L, 42L, 57L, 75L,
+        -41L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 30L, 42L, 57L, 74L,
+        -33L, -17L, -5L, 5L, 17L, 33L, 49L, 69L,
+        -17L, 5L, 29L, 55L,
+        30L,
+        0L),
+      Y = rep(
+        c(36L, 21L, 10L, 3L, -3L, -8L, -13L, -21L, -30L, -43L, -53L, -57L),
+        times = c(2L, 7L, 12L, 12L, 12L, 14L, 14L, 13L, 8L, 4L, 1L, 1L)))),
 
 
   "OS" = list(
@@ -136,7 +171,64 @@ HVF_XY_defaults <- list(
         by = 12L)),
       Y = rep(
         c(42L, 30L, 18L, 6L, -6L, -18L, -30L, -42L, -54L),
-        times = c(6, 10, 6, 6, 6, 6, 8, 8, 4)))))
+        times = c(6, 10, 6, 6, 6, 6, 8, 8, 4))),
+    "S36" = list(
+      npoints = 36L,
+      blindspotindices = integer(0),
+      X = c(
+        -20L, 0L, 20L,
+        -30L, -20L, 0L, 20L, 30L,
+        -30L, 0L, 30L, -20L, 20L,
+        -40L, 0L, 40L, -20L, 20L,
+        -40L, -10L, 10L, 40L,
+        -20L, 0L, 20L,
+        -40L, 40L,
+        -50L, -30L, -10L, 10L, 30L, 50L,
+        -20L, 0L, 20L),
+      Y = rep(
+        c(52L, 44L, 36L, 32L, 24L, 20L, 15L, 10L, 5L, 0L, -10L),
+        times = c(3L, 5L, 3L, 2L, 3L, 2L, 4L, 3L, 2L, 6L, 3L))),
+    "EM100" = list( # Visual Field Esterman Monocular Test Pattern
+      npoints = 100L,
+      blindspotindices = integer(0), # ???
+      X = c(
+        -23L, 23L,
+        -57L, -34L, -17L, -6L, 6L, 17L, 41L,
+        -73L, -57L, -42L, -30L, -20L, -10L, -3L, 3L, 10L, 20L, 33L, 51L,
+        -75L, -57L, -42L, -30L, -20L, -13L, -8L, 8L, 13L, 20L, 33L, 52L,
+        -76L, -57L, -42L, -30L, -20L, -13L, -8L, 8L, 13L, 20L, 33L, 52L,
+        -76L, -57L, -42L, -30L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 33L, 51L,
+        -75L, -57L, -42L, -30L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 33L, 46L,
+        -74L, -57L, -42L, -30L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 41L,
+        -69L, -49L, -33L, -17L, -5L, 5L, 17L, 33L,
+        -55L, -29L, -5L, 17L,
+        -30L,
+        0L),
+      Y = rep(
+        c(36L, 21L, 10L, 3L, -3L, -8L, -13L, -21L, -30L, -43L, -53L, -57L),
+        times = c(2L, 7L, 12L, 12L, 12L, 14L, 14L, 13L, 8L, 4L, 1L, 1L)))),
+
+  "OU" = list(
+    "EB120" = list( # "Visual Field Esterman Binocular Test Pattern"
+      npoints = 120L,
+      blindspotindices = integer(0),
+      X = c(
+        -23L, 23L,
+        -57L, -34L, -17L, -6L, 6L, 17L, 34L, 57L,
+        -73L, -57L, -42L, -30L, -20L, -10L, -3L, 3L, 10L, 20L, 30L, 42L, 57L, 73L,
+        -75L, -57L, -42L, -30L, -20L, -13L, -8L, 8L, 13L, 20L, 30L, 42L, 57L, 75L,
+        -76L, -57L, -42L, -30L, -20L, -13L, -8L, 8L, 13L, 20L, 30L, 42L, 57L, 76L,
+        -76L, -57L, -42L, -30L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 30L, 42L, 57L, 76L,
+        -75L, -57L, -42L, -30L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 30L, 42L, 57L, 75L,
+        -74L, -57L, -42L, -30L, -20L, -13L, -8L, -3L, 3L, 8L, 13L, 20L, 30L, 42L, 57L, 74L,
+        -69L, -49L, -33L, -17L, -5L, 5L, 17L, 33L, 49L, 69L,
+        -55L, -29L, -8L, 8L, 29L, 55L,
+        -30L, 30L,
+        -8L, 8L),
+      Y = rep(
+        c(36L, 21L, 10L, 3L, -3L, -8L, -13L, -21L, -30L, -43L, -53L, -57L),
+        times = c(2L, 8L, 14L, 14L, 14L, 16L, 16L, 16L, 10L, 6L, 2L, 2L)))))
+
 
 # add data.frame format to each component
 HVF_XY_defaults <- sapply(
