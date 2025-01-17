@@ -4,12 +4,14 @@
 \alias{xml_extract}
 \title{Extract test level information from FORUM XML file}
 \usage{
-xml_extract(top, comments = FALSE)
+xml_extract(top, comments = FALSE, verbose = 0)
 }
 \arguments{
 \item{top}{Root node of an xml file}
 
 \item{comments}{Should the patient and text comments be extracted? Default is FALSE.}
+
+\item{verbose}{(integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.}
 }
 \value{
 a character vector with about 60 components extracted from the XML

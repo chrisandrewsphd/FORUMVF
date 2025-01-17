@@ -2,6 +2,7 @@
 #'
 #' @param top Root node of an xml file
 #' @param comments Should the patient and text comments be extracted? Default is FALSE.
+#' @param verbose (integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.
 #'
 #' @return a character vector with about 60 components extracted from the XML
 #' @export
@@ -11,7 +12,7 @@
 #'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
 #'    root <- xml2::xml_root(parsed)
 #'    xml_extract(root)
-xml_extract <- function(top, comments = FALSE) {
+xml_extract <- function(top, comments = FALSE, verbose = 0) {
   # Create empty return vector
   retvalnames <- c(
     "TestID",
@@ -45,7 +46,6 @@ xml_extract <- function(top, comments = FALSE) {
 
   retval <- character(length(retvalnames))
   names(retval) <- retvalnames
-
 
   ###########
   # TEST ID #
@@ -88,7 +88,7 @@ xml_extract <- function(top, comments = FALSE) {
   # els <- xml_find_all(top, ".//attr [@tag = '00100020']")
   # sapply(els, xml_text)
   # retval["MRN0"] <- text_of_most_common_with_check(top, '00100020', verbose = 1)
-  retval["MRN0"] <- text_of_mrn(top, verbose = 1)
+  retval["MRN0"] <- text_of_mrn(top, verbose = verbose)
   retval["MRN"] <- gsub("[^[:digit:]]", "", retval["MRN0"])
   # # # ( 4)* ID issuer: 00100021
   # # els <- xml_find_all(top, ".//attr [@tag = '00100021']")
@@ -108,6 +108,46 @@ xml_extract <- function(top, comments = FALSE) {
   # sapply(els, xml_text)
   retval["Laterality1"] <- text_of_first(top, '00200060')
   retval["Laterality2"] <- text_of_first(top, '00240113')
+
+  ################################
+  # ( 6) "Single Field Analysis" #
+  ################################
+
+  # ( 7) Performed Protocol Code Sequence: 00400260
+  # (17)
+  # Each appeared exactly once in sample of 10K files
+  # Use first (presumably only)
+  # els <- xml_find_all(top, ".//attr [@tag = '00400260']")
+  # els # nodeset
+  # elsa <- xml_find_all(els, ".//attr [@tag = '00080104']") # nodeset
+  # elsa
+  # sapply(elsa, xml_text) # 4 elements (7) is [1], (17) is [3]
+  # xml_text(xml_find_first(xml_child(els, 1), ".//attr [@tag = '00080104']")) # (7)
+  # xml_text(xml_find_first(xml_child(els, 2), ".//attr [@tag = '00080104']")) # (17)
+  # el <- xml2::xml_find_first( # node with 2 children (test pattern, test strategy)
+  #   top, ".//attr [@tag = '00400260']")
+  el <- my_find_first(top, '00400260')
+  # ch1 <- xml_child(el, 1) # node with ~4 children, ~3rd is test pattern
+  # ch2 <- xml_child(el, 2) # node with ~4 children, ~3rd is test strategy
+  # ch13 <- xml_find_first(ch1, ".//attr [@tag = '00080104']")
+  # ch23 <- xml_find_first(ch2, ".//attr [@tag = '00080104']")
+  # retval["TestPattern"] <- xml_text(ch13)
+  # retval["TestStrategy"] <- xml_text(ch23)
+  if (!is.na(el) && (xml2::xml_length(el) >= 2)) {
+    # retval["TestPattern"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 1), ".//attr [@tag = '00080104']"))
+    retval["TestPattern"] <- text_of_first(xml2::xml_child(el, 1), '00080104')
+    # retval["TestStrategy"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 2), ".//attr [@tag = '00080104']"))
+    retval["TestStrategy"] <- text_of_first(xml2::xml_child(el, 2), '00080104')
+  } else {
+    retval[c("TestPattern", "TestStrategy")] <- NA_character_
+  }
+
+  if (is.na(retval["TestPattern"])) {
+    # This is not a HVF
+    # replace remaining fields by NA and exit
+    retval[which(retval == "")] <- NA_character_
+    return(retval)
+  }
 
   ###############
   # TEST TIMING #
@@ -130,47 +170,19 @@ xml_extract <- function(top, comments = FALSE) {
   # computed from study date and dob
   retval["Age"] <- computeage(retval["DOB"], retval["TestDate"])
 
-  ################################
-  # ( 6) "Single Field Analysis" #
-  ################################
-
-  # ( 7) Performed Protocol Code Sequence: 00400260
-  # (17)
-  # Each appeared exactly once in sample of 10K files
-  # Use first (presumably only)
-  # els <- xml_find_all(top, ".//attr [@tag = '00400260']")
-  # els # nodeset
-  # elsa <- xml_find_all(els, ".//attr [@tag = '00080104']") # nodeset
-  # elsa
-  # sapply(elsa, xml_text) # 4 elements (7) is [1], (17) is [3]
-  # xml_text(xml_find_first(xml_child(els, 1), ".//attr [@tag = '00080104']")) # (7)
-  # xml_text(xml_find_first(xml_child(els, 2), ".//attr [@tag = '00080104']")) # (17)
-  el <- xml2::xml_find_first(top, ".//attr [@tag = '00400260']") # node with 2 children (test pattern, test strategy)
-  # ch1 <- xml_child(el, 1) # node with ~4 children, ~3rd is test pattern
-  # ch2 <- xml_child(el, 2) # node with ~4 children, ~3rd is test strategy
-  # ch13 <- xml_find_first(ch1, ".//attr [@tag = '00080104']")
-  # ch23 <- xml_find_first(ch2, ".//attr [@tag = '00080104']")
-  # retval["TestPattern"] <- xml_text(ch13)
-  # retval["TestStrategy"] <- xml_text(ch23)
-  if (!is.na(el)) {
-    # retval["TestPattern"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 1), ".//attr [@tag = '00080104']"))
-    retval["TestPattern"] <- text_of_first(xml2::xml_child(el, 1), '00080104')
-    # retval["TestStrategy"] <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(el, 2), ".//attr [@tag = '00080104']"))
-    retval["TestStrategy"] <- text_of_first(xml2::xml_child(el, 2), '00080104')
-  } else {
-    retval[c("TestPattern", "TestStrategy")] <- NA_character_
-  }
-
   ############
   # FIXATION #
   ############
   # ( 8) Fixation Monitoring
   # Appeared exactly once in sample of 10K files
   # Use first (presumably only)
-  el <- xml2::xml_find_first(top, ".//attr [@tag = '00240032']") # node, 1 child
+  # el <- xml2::xml_find_first(top, ".//attr [@tag = '00240032']") # node, 1 child
+  el <- my_find_first(top, '00240032') # node, 1 child
   ch <- xml2::xml_child(el) # node, 5 children
-  gch <- xml2::xml_find_first(ch, ".//attr [@tag = '00240033']") # Code Sequence, node, 2 children
-  ggch <- xml2::xml_find_all(gch, ".//attr [@tag = '00080104']")
+  # gch <- xml2::xml_find_first(ch, ".//attr [@tag = '00240033']") # Code Sequence, node, 2 children
+  gch <- my_find_first(ch, '00240033') # Code Sequence, node, 2 children
+  # ggch <- xml2::xml_find_all(gch, ".//attr [@tag = '00080104']")
+  ggch <- my_find_all(gch, '00080104')
   fmtext <- xml2::xml_text(ggch)
   if (length(fmtext) >= 1L) {
     retval["Fixation1"] <- fmtext[1]
@@ -197,7 +209,8 @@ xml_extract <- function(top, comments = FALSE) {
   # (11) False POS
   # (12) False NEG
   # Visual Field Catch Trial Sequence
-  el <- xml2::xml_find_first(top, ".//attr [@tag = '00240034']") # node, 1 child
+  # el <- xml2::xml_find_first(top, ".//attr [@tag = '00240034']") # node, 1 child
+  el <- my_find_first(top, '00240034') # node, 1 child
   ch <- xml2::xml_child(el, 1) # node, ~13 children
 
   retval["CatchTrialDataFlag"] <- text_of_first(el, '00240055') # Catch Trials Data Flag (100% YES in sample data)
@@ -230,12 +243,14 @@ xml_extract <- function(top, comments = FALSE) {
   ###########################
   # (16) Background
   retval["BackgroundLuminance"] <- text_of_first(top, '00240020') # Background Luminance
-  el <- xml2::xml_find_first(top, ".//attr [@tag = '00240024']") # Background Illumination Color Code Sequence
+  # el <- xml2::xml_find_first(top, ".//attr [@tag = '00240024']") # Background Illumination Color Code Sequence
+  el <- my_find_first(top, '00240024') # Background Illumination Color Code Sequence
   retval["BackgroundColor"] <- text_of_first(el, '00080104') # color
 
   # (15) Stimulus
   retval["MaxStimulusLuminance"] <- text_of_first(top, '00240018') # Maximum Stimulus Luminance
-  el <- xml2::xml_find_first(top, ".//attr [@tag = '00240021']") # Stimulus Color Code Sequence
+  # el <- xml2::xml_find_first(top, ".//attr [@tag = '00240021']") # Stimulus Color Code Sequence
+  el <- my_find_first(top, '00240021') # Stimulus Color Code Sequence
   retval["StimulusColor"] <- text_of_first(el, '00080104') # color
   retval["StimulusArea"] <- text_of_first(top, '00240025') # Stimulus Area
   retval["StimulusPresentationTime"] <- text_of_first(top, '00240028') # Stimulus Presentation Time
@@ -273,7 +288,8 @@ xml_extract <- function(top, comments = FALSE) {
   # Store L and R separately
 
   # Ophthalmic Patient Clinical Information Left Eye Sequence
-  left <- xml2::xml_find_first(top, ".//attr [@tag = '00240114']") # node, 1 child
+  # left <- xml2::xml_find_first(top, ".//attr [@tag = '00240114']") # node, 1 child
+  left <- my_find_first(top, '00240114') # node, 1 child
 
   if (!is.na(left)) {
     retval["PupilDiameterLeft"] <- text_of_first(left, '00460044') # Pupil Size
@@ -285,7 +301,8 @@ xml_extract <- function(top, comments = FALSE) {
   }
 
   # Ophthalmic Patient Clinical Information Right Eye Sequence
-  right <- xml2::xml_find_first(top, ".//attr [@tag = '00240115']") # node, 1 child
+  # right <- xml2::xml_find_first(top, ".//attr [@tag = '00240115']") # node, 1 child
+  right <- my_find_first(top, '00240115') # node, 1 child
 
   if (!is.na(right)) {
     retval["PupilDiameterRight"] <- text_of_first(right, '00460044') # Pupil Size
@@ -297,7 +314,8 @@ xml_extract <- function(top, comments = FALSE) {
   }
 
   # (24) GHT:
-  el <- xml2::xml_find_first(top, ".//attr [@tag = '0040A168']") # Concept Code Sequence
+  # el <- xml2::xml_find_first(top, ".//attr [@tag = '0040A168']") # Concept Code Sequence
+  el <- my_find_first(top, '0040A168') # Concept Code Sequence
   retval["GHT"] <- text_of_first(el, '00080104')
 
 
