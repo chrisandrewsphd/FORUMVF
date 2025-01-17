@@ -8,6 +8,7 @@ xml_dir_extract_points(
   xmldir,
   recursive = FALSE,
   csvdir = NULL,
+  excludenonhvf = FALSE,
   eyeformat = "OD",
   dropXY = eyeformat \%in\% c("OD", "OS"),
   extra4fields = FALSE,
@@ -20,6 +21,12 @@ xml_dir_extract_points(
 \item{recursive}{(logical) Should sub directories be included? Default is FALSE}
 
 \item{csvdir}{(character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.}
+
+\item{excludenonhvf}{(logical) Should files that don't have a recognizable HVF
+Test Pattern be excluded from the output value/file? If \code{FALSE} (default),
+then every xml file will be represented in one of the list components (returned
+and/or written to files). If \code{TRUE}, Test Patterns <NA> and "" will not
+be returned and/or written.}
 
 \item{eyeformat}{See `xml_extract_points()`. Leave as \code{"OD"} (default).}
 

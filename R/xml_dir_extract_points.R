@@ -3,6 +3,11 @@
 #' @param xmldir (character) Name of directory containing xml files from FORUM
 #' @param recursive (logical) Should sub directories be included? Default is FALSE
 #' @param csvdir (character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.
+#' @param excludenonhvf (logical) Should files that don't have a recognizable HVF
+#' Test Pattern be excluded from the output value/file? If \code{FALSE} (default),
+#' then every xml file will be represented in one of the list components (returned
+#' and/or written to files). If \code{TRUE}, Test Patterns <NA> and "" will not
+#' be returned and/or written.
 #' @param eyeformat See `xml_extract_points()`. Leave as \code{"OD"} (default).
 #' @param dropXY See `xml_extract_points()`.  Leave as \code{TRUE} (default).
 #' @param extra4fields See `xml_extract_points()`.  Leave as \code{FALSE} (default).
@@ -16,6 +21,7 @@ xml_dir_extract_points <- function(
     xmldir,
     recursive = FALSE,
     csvdir = NULL,
+    excludenonhvf = FALSE,
     eyeformat = "OD",
     dropXY = eyeformat %in% c("OD", "OS"),
     extra4fields = FALSE,
@@ -52,22 +58,32 @@ xml_dir_extract_points <- function(
   #   if (is.null(attr(v, "TestPattern"))) return("Unknown Pattern")
   #   else return(attr(v, "TestPattern"))
   # })
-  tp <- sapply(lst, FUN = function(v) v["TestPattern"])
-  testpatterns <- sort(unique(tp))
+  tp <- factor(
+    sapply(lst, FUN = function(v) v["TestPattern"]),
+    exclude = NULL)
+  testpatterns <- sort(unique(tp), na.last = TRUE)
+
   if (verbose > 0) {
-    cat(sprintf("%d unique test patterns reported\n", length(testpatterns)))
+    cat(sprintf(
+      "%d unique test patterns reported\n", length(testpatterns)))
     if (verbose > 1) {
       print(table(tp))
     }
   }
   lstlst <- split(lst, tp)
+
+  if (isTRUE(excludenonhvf)) {
+    lstlst[which(is.na(names(lstlst)))] <- NULL
+    lstlst[which(names(lstlst) == "")] <- NULL
+  }
+
   lstmat <- lapply(lstlst, FUN = function(lst) do.call(rbind, lst))
+
 
   if (!is.null(csvdir)) {
     lapply(
-      testpatterns,
+      names(lstmat), # testpatterns,
       FUN = function(testpattern) {
-        # if (testpattern == "Unknown Pattern") return(NULL)
         utils::write.csv(
           lstmat[[testpattern]],
           file = sprintf(
