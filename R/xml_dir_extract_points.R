@@ -67,7 +67,7 @@ xml_dir_extract_points <- function(
     lapply(
       testpatterns,
       FUN = function(testpattern) {
-        if (testpattern == "Unknown Pattern") return(NULL)
+        # if (testpattern == "Unknown Pattern") return(NULL)
         utils::write.csv(
           lstmat[[testpattern]],
           file = sprintf(
