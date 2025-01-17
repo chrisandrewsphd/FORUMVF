@@ -8,6 +8,7 @@ xml_dir_extract(
   xmldir,
   recursive = FALSE,
   csvdir = NULL,
+  excludenonhvf = FALSE,
   comment = FALSE,
   verbose = 0
 )
@@ -18,6 +19,8 @@ xml_dir_extract(
 \item{recursive}{(logical) Should sub directories be included? Default is FALSE}
 
 \item{csvdir}{(character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.}
+
+\item{excludenonhvf}{(logical) Should files that don't have a recognizable HVF Test Pattern be excluded from the output file? If \code{FALSE} (default), then the number of rows of the returned matrix will be the same as the number of files in \code{xmldir}. If \code{TRUE}, it may be less. Files with empty test pattern will be excluded.}
 
 \item{comment}{(logical) Should text comment and patient comment be extracted? Default is FALSE.}
 
