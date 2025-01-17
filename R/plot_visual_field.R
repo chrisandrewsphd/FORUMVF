@@ -20,7 +20,11 @@
 #'    exdatadir <- system.file('extdata', package = 'FORUMVF')
 #'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
 #'    root <- xml2::xml_root(parsed)
+#'
+#'    # Example data uses old XML format, so use old tag format
+#'    old_hdrtxt <- set_hdrtxt('attr')
 #'    vfmat <- xml_points24dash2(root, asvector = FALSE, dropXY = FALSE)
+#'    set_hdrtxt(old_hdrtxt) # restore
 #'
 #'    op <- par(mar = rep(1, 4))
 #'    plot_visual_field(vfmat)
