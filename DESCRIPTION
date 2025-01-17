@@ -1,14 +1,14 @@
 Package: FORUMVF
 Type: Package
 Title: Extract HVF data from FORUM XML files
-Version: 0.3.0
+Version: 0.4.0
 Author: Chris Andrews
 Maintainer: Chris Andrews <chrisaa@umich.edu>
 Description: Convert XML file produced by FORUM to a character vector.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports:
     xml2,
     grDevices,
