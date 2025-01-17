@@ -13,7 +13,9 @@
 #'    exdatadir <- system.file('extdata', package = 'FORUMVF')
 #'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
 #'    root <- xml2::xml_root(parsed)
+#'    old_hdrtxt <- set_hdrtxt("attr")
 #'    xml_points24dash2(root)
+#'    set_hdrtxt(old_hdrtxt)
 xml_points24dash2 <- function(
     top,
     asvector = TRUE,
@@ -32,7 +34,8 @@ xml_points24dash2 <- function(
   TestID <- text_of_first(top, '00020003')
 
   # check strategy
-  strategysequence <- xml2::xml_find_first(top, ".//attr [@tag = '00400260']") # node with 2 children (test pattern, test strategy)
+  # strategysequence <- xml2::xml_find_first(top, ".//attr [@tag = '00400260']") # node with 2 children (test pattern, test strategy)
+  strategysequence <- my_find_first(top, '00400260') # node with 2 children (test pattern, test strategy)
   # TestPattern <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 1), ".//attr [@tag = '00080104']"))
   TestPattern <- text_of_first(xml2::xml_child(strategysequence, 1), '00080104')
   # TestStrategy <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 2), ".//attr [@tag = '00080104']"))
@@ -59,7 +62,8 @@ xml_points24dash2 <- function(
   }
 
   # node with 54 children
-  pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
+  # pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
+  pointsequence <- my_find_first(top, '00240089')
   if (xml2::xml_length(pointsequence) != 54L) {
     cat(sprintf("%3d points\n", xml2::xml_length(pointsequence)))
     stop("Pattern 24-2 but not 54 points.")
