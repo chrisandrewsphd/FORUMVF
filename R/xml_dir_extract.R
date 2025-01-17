@@ -33,7 +33,7 @@ xml_dir_extract <- function(
   # nrows = number of files
   # ncolumns ~ 70
   st2 <- system.time(
-    mat <- t(sapply(list_top, xml_extract, comment = comment)))
+    mat <- t(sapply(list_top, xml_extract, comment = comment, verbose = verbose)))
 
   if (isTRUE(verbose > 0)) {
     cat("Processing Duration", st2[1:3], "\n")
