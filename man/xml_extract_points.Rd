@@ -36,5 +36,7 @@ Extract point information from FORUM XML file
    exdatadir <- system.file('extdata', package = 'FORUMVF')
    parsed <- xml2::read_xml(sprintf("\%s/testdata.xml", exdatadir))
    root <- xml2::xml_root(parsed)
-   xml_points24dash2(root)
+   old_hdrtxt <- set_hdrtxt('attr')
+   xml_extract_points(root)
+   set_hdrtxt(old_hdrtxt)
 }

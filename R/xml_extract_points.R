@@ -14,7 +14,9 @@
 #'    exdatadir <- system.file('extdata', package = 'FORUMVF')
 #'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
 #'    root <- xml2::xml_root(parsed)
-#'    xml_points24dash2(root)
+#'    old_hdrtxt <- set_hdrtxt('attr')
+#'    xml_extract_points(root)
+#'    set_hdrtxt(old_hdrtxt)
 xml_extract_points <- function(
     top,
     eyeformat = "OD",
@@ -31,15 +33,31 @@ xml_extract_points <- function(
   TestID <- text_of_first(top, '00020003')
 
   # check strategy
-  strategysequence <- xml2::xml_find_first(top, ".//attr [@tag = '00400260']") # node with 2 children (test pattern, test strategy)
-  # TestPattern <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 1), ".//attr [@tag = '00080104']"))
-  TestPattern <- text_of_first(xml2::xml_child(strategysequence, 1), '00080104')
-  # TestStrategy <- xml2::xml_text(xml2::xml_find_first(xml2::xml_child(strategysequence, 2), ".//attr [@tag = '00080104']"))
-  TestStrategy <- text_of_first(xml2::xml_child(strategysequence, 2), '00080104')
+  # strategysequence <- xml2::xml_find_first(top, ".//attr [@tag = '00400260']")
+  strategysequence <- my_find_first(top, '00400260')
+  # node with 2 children (test pattern, test strategy)
+
+  if (!is.na(strategysequence) && (xml2::xml_length(strategysequence) >= 2)) {
+    TestPattern <- text_of_first(xml2::xml_child(strategysequence, 1), '00080104')
+    TestStrategy <- text_of_first(xml2::xml_child(strategysequence, 2), '00080104')
+  } else {
+    TestPattern <- NA_character_
+    TestStrategy <- NA_character_
+  }
 
   if (verbose > 0) {
     cat(sprintf("Test Pattern and Strategy: '%s', '%s'\n", TestPattern, TestStrategy))
   }
+
+  # if (is.na(TestPattern)) {
+  #   # This is not a HVF
+  #   # replace remaining fields by NA and exit
+  #   return(c(
+  #     TestID = TestID,
+  #     TestPattern = NA_character_,
+  #     Eye = NA_character_,
+  #     Format = NA_character_))
+  # }
 
   expectedpoints <- switch(
     TestPattern,
@@ -48,6 +66,10 @@ xml_extract_points <- function(
     "Visual Field 30-2 Test Pattern" = 76L,
     "Visual Field 60-4 Test Pattern" = 60L,
     "Visual Field 24-2C Test Pattern" = 64L,
+    # # These 3 only have SEEN vs NOT SEEN, which are in extra4fields
+    # "Visual Field Esterman Binocular Test Pattern" = 120L,
+    # "Visual Field Esterman Monocular Test Pattern" = 100L,
+    # "Visual Field Superior 36 Point Screening Test Pattern" = 36L,
     NA_integer_)
 
   if (is.na(expectedpoints)) {
@@ -64,9 +86,14 @@ xml_extract_points <- function(
   }
 
   # node with 54/70/60/... children
-  pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
+  # pointsequence <- xml2::xml_find_first(top, ".//attr [@tag = '00240089']")
+  pointsequence <- my_find_first(top, '00240089')
 
-  npoints <- xml2::xml_length(pointsequence)
+  npoints <- if (!is.na(pointsequence)) {
+    xml2::xml_length(pointsequence)
+  } else {
+    0L
+  }
 
   if (!is.na(expectedpoints) && (npoints != expectedpoints)) {
     cat(sprintf("TestID = %s\n", TestID))
