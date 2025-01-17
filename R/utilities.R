@@ -1,3 +1,43 @@
+#' Return the first node found with the associated tag
+#'
+#' @param node xml node
+#' @param tag attribute tag to find (character)
+#'
+#' @return first node identified by tag
+my_find_first <- function(node, tag) {
+  # returns NA if node is missing
+  if (is.na(node)) return(NA_character_)
+  if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
+  # returns NA if tag is not found
+  # returns "" if tag is found but has no value
+  xml2::xml_find_first(
+    node,
+    sprintf(
+      ".//%s [@tag = '%s']",
+      the$hdrtxt,
+      tag))
+}
+
+#' Return the all nodes found with the associated tag
+#'
+#' @param node xml node
+#' @param tag attribute tag to find (character)
+#'
+#' @return all nodes identified by tag
+my_find_all <- function(node, tag) {
+  # returns NA if node is missing
+  if (is.na(node)) return(NA_character_)
+  if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
+  # returns NA if tag is not found
+  # returns "" if tag is found but has no value
+  xml2::xml_find_all(
+    node,
+    sprintf(
+      ".//%s [@tag = '%s']",
+      the$hdrtxt,
+      tag))
+}
+
 #' Return the text value associated with a tag
 #'
 #' @param node xml node
@@ -15,7 +55,10 @@ text_of_first <- function(node, tag) {
   xml2::xml_text(
     xml2::xml_find_first(
       node,
-      sprintf(".//attr [@tag = '%s']", tag)))
+      sprintf(
+        ".//%s [@tag = '%s']",
+        the$hdrtxt,
+        tag)))
 }
 
 #' Return the text value associated with a tag
@@ -34,7 +77,12 @@ text_of_most_common_with_check <- function(node, tag, verbose = 0) {
   if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
 
   # nodeset of all matches (possible empty)
-  els <- xml2::xml_find_all(node, sprintf(".//attr [@tag = '%s']", tag))
+  els <- xml2::xml_find_all(
+    node,
+    sprintf(
+      ".//%s [@tag = '%s']",
+      the$hdrtxt,
+      tag))
   if (verbose > 1) print(els)
 
   # return NA if no matches
@@ -52,13 +100,19 @@ text_of_most_common_with_check <- function(node, tag, verbose = 0) {
     # after issuing warning if more than one value
     else {
       if (length(tab) > 1) {
-        warning(sprintf("Multiple values are not unique for tag %s.", tag))
-        if (verbose > 0) print(tab)
+        # warning(sprintf("Multiple values are not unique for tag %s.", tag))
+        if (verbose > 0) {
+          cat(sprintf("Multiple values are not unique for tag %s.\n", tag))
+          if (verbose > 1) {
+            print(tab)
+          }
+        }
       }
-      return(names(tab)[1])
     }
+    return(names(tab)[1])
   }
 }
+
 
 #' Return the text value associated with a tag. Tailored for MRN finding.
 #'
@@ -76,7 +130,12 @@ text_of_mrn <- function(node, tag = '00100020', verbose = 0) {
   if (!("xml_node" %in% class(node))) stop("'node' must be class 'xml_node'.")
 
   # nodeset of all matches (possible empty)
-  els <- xml2::xml_find_all(node, sprintf(".//attr [@tag = '%s']", tag))
+  els <- xml2::xml_find_all(
+    node,
+    sprintf(
+      ".//%s [@tag = '%s']",
+      the$hdrtxt,
+      tag))
   if (verbose > 1) print(els)
 
   # return NA if no matches
@@ -94,7 +153,7 @@ text_of_mrn <- function(node, tag = '00100020', verbose = 0) {
     else if (length(tab) == 1) return(names(tab))
     # If more than one value, return most common
     # if tie, return value with #digits closest to 9
-    # after issuing warning if more than one value
+    # after issuing message if more than one value and verbose > 0
     else {
       # warning(sprintf("Multiple values are not unique for tag %s.", tag))
       if (verbose > 0) cat(sprintf("Multiple values are not unique for tag %s.", tag))
