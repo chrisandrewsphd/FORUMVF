@@ -23,7 +23,8 @@ xml_point <- function(
 
   # Normal Sequence
   # Are the normalized values present?
-  normalparent <- xml2::xml_find_first(pointroot, ".//attr [@tag = '00240097']")
+  # normalparent <- xml2::xml_find_first(pointroot, ".//attr [@tag = '00240097']")
+  normalparent <- my_find_first(pointroot, '00240097')
   if (!is.na(normalparent)) {
     normalroot <- xml2::xml_child(normalparent, 1)
 
