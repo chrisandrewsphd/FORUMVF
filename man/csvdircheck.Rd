@@ -7,7 +7,7 @@
 csvdircheck(csvdir, verbose = 0)
 }
 \arguments{
-\item{csvdir}{proposed directory to write to (character vector of length 1)}
+\item{csvdir}{proposed existing directory to write to (character vector of length 1)}
 
 \item{verbose}{level of output to console}
 }
