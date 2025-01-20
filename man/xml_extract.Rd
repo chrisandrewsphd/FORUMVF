@@ -4,12 +4,12 @@
 \alias{xml_extract}
 \title{Extract test level information from FORUM XML file}
 \usage{
-xml_extract(top, comments = FALSE, verbose = 0)
+xml_extract(top, comments = FALSE, verbose = 0L)
 }
 \arguments{
-\item{top}{Root node of an xml file}
+\item{top}{Root node (class xml_node) of an xml file or a filename (character).}
 
-\item{comments}{Should the patient and text comments be extracted? Default is FALSE.}
+\item{comments}{Should the patient and text comments be extracted? Default is \code{FALSE}.}
 
 \item{verbose}{(integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.}
 }
@@ -21,7 +21,11 @@ Extract test level information from FORUM XML file
 }
 \examples{
    exdatadir <- system.file('extdata', package = 'FORUMVF')
+   set_hdrtxt('attr')
+   xml_extract(sprintf("\%s/testdata.xml", exdatadir))
    parsed <- xml2::read_xml(sprintf("\%s/testdata.xml", exdatadir))
+   xml_extract(parsed)
    root <- xml2::xml_root(parsed)
    xml_extract(root)
+   reset_hdrtxt()
 }

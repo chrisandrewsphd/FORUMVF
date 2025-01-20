@@ -1,10 +1,11 @@
 #' Extract visual field values from all xml files in a directory
 #'
-#' @param xmldir (character) Name of directory containing xml files from FORUM
-#' @param recursive (logical) Should sub directories be included? Default is FALSE
+#' @param xmldir (character) Name of directory containing xml files from FORUM.
+#' @param recursive (logical) Should sub directories be included? Default is
+#' \code{FALSE}.
 #' @param csvdir (character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.
 #' @param excludenonhvf (logical) Should files that don't have a recognizable HVF Test Pattern be excluded from the output file? If \code{FALSE} (default), then the number of rows of the returned matrix will be the same as the number of files in \code{xmldir}. If \code{TRUE}, it may be less. Files with empty test pattern will be excluded.
-#' @param comment (logical) Should text comment and patient comment be extracted? Default is FALSE.
+#' @param comment (logical) Should text comment and patient comment be extracted? Default is \code{FALSE}.
 #' @param verbose (integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.
 #'
 #' @return character matrix. One row per file.  First column is file name with complete path. Subsequent columns are extracted values from xml files.
@@ -17,7 +18,7 @@ xml_dir_extract <- function(
     csvdir = NULL,
     excludenonhvf = FALSE,
     comment = FALSE,
-    verbose = 0) {
+    verbose = 0L) {
 
   csvdir <- csvdircheck(csvdir = csvdir, verbose = verbose)
 

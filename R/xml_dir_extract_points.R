@@ -1,7 +1,8 @@
 #' Extract visual field values from all xml files in a directory
 #'
-#' @param xmldir (character) Name of directory containing xml files from FORUM
-#' @param recursive (logical) Should sub directories be included? Default is FALSE
+#' @param xmldir (character) Name of directory containing xml files from FORUM.
+#' @param recursive (logical) Should sub directories be included? Default is
+#' \code{FALSE}.
 #' @param csvdir (character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.
 #' @param excludenonhvf (logical) Should files that don't have a recognizable HVF
 #' Test Pattern be excluded from the output value/file? If \code{FALSE} (default),
@@ -25,7 +26,7 @@ xml_dir_extract_points <- function(
     eyeformat = "OD",
     dropXY = eyeformat %in% c("OD", "OS"),
     extra4fields = FALSE,
-    verbose = 0) {
+    verbose = 0L) {
 
   csvdir <- csvdircheck(csvdir = csvdir, verbose = verbose)
 
