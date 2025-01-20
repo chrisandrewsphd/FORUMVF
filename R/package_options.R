@@ -20,7 +20,7 @@ get_hdrtxt <- function() {
 
 #' Change hdrtxt
 #'
-#' @param new_hdrtxt New text to be used in XML parsing
+#' @param new_hdrtxt New text to be used in XML parsing.
 #'
 #' @export
 set_hdrtxt <- function(new_hdrtxt) {

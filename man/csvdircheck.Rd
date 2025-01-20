@@ -4,12 +4,13 @@
 \alias{csvdircheck}
 \title{Check form/existence of csvdir}
 \usage{
-csvdircheck(csvdir, verbose = 0)
+csvdircheck(csvdir, verbose = 0L)
 }
 \arguments{
-\item{csvdir}{proposed existing directory to write to (character vector of length 1)}
+\item{csvdir}{proposed existing directory to write to
+(character vector of length 1).}
 
-\item{verbose}{level of output to console}
+\item{verbose}{level of output to console.}
 }
 \value{
 either NULL or character string of existing directory to write to

@@ -7,7 +7,7 @@
 set_hdrtxt(new_hdrtxt)
 }
 \arguments{
-\item{new_hdrtxt}{New text to be used in XML parsing}
+\item{new_hdrtxt}{New text to be used in XML parsing.}
 }
 \description{
 Change hdrtxt

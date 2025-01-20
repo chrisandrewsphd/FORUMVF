@@ -4,10 +4,10 @@
 \alias{text_of_mrn}
 \title{Return the text value associated with a tag. Tailored for MRN finding.}
 \usage{
-text_of_mrn(node, tag = "00100020", verbose = 0)
+text_of_mrn(node, tag = "00100020", verbose = 0L)
 }
 \arguments{
-\item{node}{xml node}
+\item{node}{xml node.}
 
 \item{tag}{attribute tag to find. Default is '00100020'.}
 

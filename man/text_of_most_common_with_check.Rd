@@ -4,12 +4,12 @@
 \alias{text_of_most_common_with_check}
 \title{Return the text value associated with a tag}
 \usage{
-text_of_most_common_with_check(node, tag, verbose = 0)
+text_of_most_common_with_check(node, tag, verbose = 0L)
 }
 \arguments{
-\item{node}{xml node}
+\item{node}{xml node.}
 
-\item{tag}{attribute tag to find}
+\item{tag}{attribute tag to find.}
 
 \item{verbose}{Control amount of output to console. Default is 0. Larger values may produce more output.}
 }

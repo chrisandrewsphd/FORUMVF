@@ -7,9 +7,9 @@
 my_find_first(node, tag)
 }
 \arguments{
-\item{node}{xml node}
+\item{node}{xml node.}
 
-\item{tag}{attribute tag to find (character)}
+\item{tag}{attribute tag to find (character).}
 }
 \value{
 first node identified by tag

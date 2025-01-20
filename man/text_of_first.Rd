@@ -7,9 +7,9 @@
 text_of_first(node, tag)
 }
 \arguments{
-\item{node}{xml node}
+\item{node}{xml node.}
 
-\item{tag}{attribute tag to find}
+\item{tag}{attribute tag to find.}
 }
 \value{
 length-1 character vector containing text of tag. Value is NA

@@ -7,9 +7,9 @@
 computeage(textdate0, textdate1)
 }
 \arguments{
-\item{textdate0}{character vector of dates in format YYYYMMDD}
+\item{textdate0}{character vector of dates in format YYYYMMDD.}
 
-\item{textdate1}{character vector of dates in format YYYYMMDD}
+\item{textdate1}{character vector of dates in format YYYYMMDD.}
 }
 \value{
 character vector of integer ages (age at last birthday)

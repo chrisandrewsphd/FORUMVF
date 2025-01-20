@@ -7,9 +7,9 @@
 my_find_all(node, tag)
 }
 \arguments{
-\item{node}{xml node}
+\item{node}{xml node.}
 
-\item{tag}{attribute tag to find (character)}
+\item{tag}{attribute tag to find (character).}
 }
 \value{
 all nodes identified by tag

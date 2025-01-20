@@ -1,7 +1,7 @@
 #' Return the first node found with the associated tag
 #'
-#' @param node xml node
-#' @param tag attribute tag to find (character)
+#' @param node xml node.
+#' @param tag attribute tag to find (character).
 #'
 #' @return first node identified by tag
 my_find_first <- function(node, tag) {
@@ -20,8 +20,8 @@ my_find_first <- function(node, tag) {
 
 #' Return the all nodes found with the associated tag
 #'
-#' @param node xml node
-#' @param tag attribute tag to find (character)
+#' @param node xml node.
+#' @param tag attribute tag to find (character).
 #'
 #' @return all nodes identified by tag
 my_find_all <- function(node, tag) {
@@ -40,8 +40,8 @@ my_find_all <- function(node, tag) {
 
 #' Return the text value associated with a tag
 #'
-#' @param node xml node
-#' @param tag attribute tag to find
+#' @param node xml node.
+#' @param tag attribute tag to find.
 #'
 #' @return length-1 character vector containing text of tag. Value is NA
 #'     if node is missing or if tag is missing.  Value is "" if tag is found
@@ -63,14 +63,14 @@ text_of_first <- function(node, tag) {
 
 #' Return the text value associated with a tag
 #'
-#' @param node xml node
-#' @param tag attribute tag to find
+#' @param node xml node.
+#' @param tag attribute tag to find.
 #' @param verbose Control amount of output to console. Default is 0. Larger values may produce more output.
 #'
 #' @return length-1 character vector containing text of tag. Value is NA
 #'     if node is missing or if tag is missing.  Value is "" if tag is found
 #'     for node but the tag has no value.
-text_of_most_common_with_check <- function(node, tag, verbose = 0) {
+text_of_most_common_with_check <- function(node, tag, verbose = 0L) {
   # returns NA if node is missing
   if (is.na(node)) return(NA_character_)
 
@@ -116,14 +116,14 @@ text_of_most_common_with_check <- function(node, tag, verbose = 0) {
 
 #' Return the text value associated with a tag. Tailored for MRN finding.
 #'
-#' @param node xml node
+#' @param node xml node.
 #' @param tag attribute tag to find. Default is '00100020'.
 #' @param verbose Control amount of output to console. Default is 0. Larger values may produce more output.
 #'
 #' @return length-1 character vector containing text of tag. Value is NA
 #'     if node is missing or if tag is missing.  Value is "" if tag is found
 #'     for node but the tag has no value.
-text_of_mrn <- function(node, tag = '00100020', verbose = 0) {
+text_of_mrn <- function(node, tag = '00100020', verbose = 0L) {
   # returns NA if node is missing
   if (is.na(node)) return(NA_character_)
 
@@ -197,8 +197,8 @@ computeage_dep <- function(textdate0, textdate1) {
 
 #' Compute age. text input and output
 #'
-#' @param textdate0 character vector of dates in format YYYYMMDD
-#' @param textdate1 character vector of dates in format YYYYMMDD
+#' @param textdate0 character vector of dates in format YYYYMMDD.
+#' @param textdate1 character vector of dates in format YYYYMMDD.
 #'
 #' @return character vector of integer ages (age at last birthday)
 computeage <- function(textdate0, textdate1) {
@@ -225,11 +225,12 @@ computeage <- function(textdate0, textdate1) {
 
 #' Check form/existence of csvdir
 #'
-#' @param csvdir proposed existing directory to write to (character vector of length 1)
-#' @param verbose level of output to console
+#' @param csvdir proposed existing directory to write to
+#' (character vector of length 1).
+#' @param verbose level of output to console.
 #'
 #' @return either NULL or character string of existing directory to write to
-csvdircheck <- function(csvdir, verbose = 0) {
+csvdircheck <- function(csvdir, verbose = 0L) {
   if (is.null(csvdir)) {
     if (verbose > 0) cat("'csvdir' not specified. CSV data will not be exported/written.\n")
     return(NULL)
