@@ -1,6 +1,6 @@
 #' Extract point information from FORUM XML file
 #'
-#' @param top Root node of an xml file
+#' @param top Root node (class xml_node) of an xml file or a filename (character).
 #' @param eyeformat Determine the ordering of the response vector/matrix. If OD (default), the responses are ordered from top left to bottom right as they would appear on the paper printout for a right eye. If the xml file corresponds to a right eye, no transformation is done. If the xml file corresponds to a left eye, the locations are flipped across the y-axis. If eyeformat is OS, the responses are ordered from top left to bottom right as they would appear on the paper printout for left eye. If eyeformat is "file", the responses are ordered top left to bottom right without reference to eye. If eyeformat is "raw", the responses are in the order in which they were stored in the xml file.
 #' @param dropXY Should the values of X and Y be included in the output for each point. The values of X and Y are standard for a given test pattern and eye laterality. For eyeformats OD and OS, the default is to drop X and Y. For eyeformats file and raw, the default is to keep X and Y.
 #' @param extra4fields Each X,Y point provides either 7 or 11 pieces of information.  Are all 11 desired (\code{TRUE}) or just 7 (\code{FALSE}, default).
@@ -12,22 +12,38 @@
 #'
 #' @examples
 #'    exdatadir <- system.file('extdata', package = 'FORUMVF')
+#'    set_hdrtxt('attr')
+#'    xml_extract_points(sprintf("%s/testdata.xml", exdatadir))
 #'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
+#'    xml_extract_points(parsed)
 #'    root <- xml2::xml_root(parsed)
-#'    old_hdrtxt <- set_hdrtxt('attr')
 #'    xml_extract_points(root)
-#'    set_hdrtxt(old_hdrtxt)
+#'    reset_hdrtxt()
 xml_extract_points <- function(
     top,
     eyeformat = "OD",
     dropXY = eyeformat %in% c("OD", "OS"),
     extra4fields = FALSE,
     asvector = TRUE,
-    verbose = 0) {
+    verbose = 0L) {
 
   eyeformat <- match.arg(eyeformat, choices = c("OD", "OS", "file", "raw"))
 
-  if (!("xml_node" %in% class(top))) stop("'top' must be class 'xml_node'.")
+  if (inherits(top, "character")) { # assume it is a filename
+    if (length(top) == 1) {
+      top <- xml2::read_xml(top) # read file and return xml_node
+    } else if (length(top) > 1) {
+      warning("'top' is a character vector with length > 1. Only first used.")
+      top <- xml2::read_xml(top[1]) # read first file
+    } else { # length == 0
+      warning("'top' is empty character vector instead of xml_node or filename.")
+      retval[which(retval == "")] <- NA_character_
+      return(retval)
+    }
+  }
+  if (!inherits(top, "xml_node")) {
+    stop("'top' must be an xml_node or a filename (character)")
+  }
 
   # ( 0) TestID: 00020003
   TestID <- text_of_first(top, '00020003')

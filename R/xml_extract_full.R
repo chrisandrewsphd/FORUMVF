@@ -1,6 +1,6 @@
 #' Extract summary and point information from FORUM XML file
 #'
-#' @param top Root node of an xml file
+#' @param top Root node (class xml_node) of an xml file or a filename (character).
 #' @param comments Should the patient and text comments be extracted? Default is \code{FALSE}.
 #' @param eyeformat Determine the ordering of the response vector/matrix. If OD (default), the responses are ordered from top left to bottom right as they would appear on the paper printout for a right eye. If the xml file corresponds to a right eye, no transformation is done. If the xml file corresponds to a left eye, the locations are flipped across the y-axis. If eyeformat is OS, the responses are ordered from top left to bottom right as they would appear on the paper printout for left eye. If eyeformat is "file", the responses are ordered top left to bottom right without reference to eye. If eyeformat is "raw", the responses are in the order in which they were stored in the xml file.
 #' @param dropXY Should the values of X and Y be included in the output for each point. The values of X and Y are standard for a given test pattern and eye laterality. For eyeformats OD and OS, the default is to drop X and Y. For eyeformats file and raw, the default is to keep X and Y.
@@ -13,11 +13,13 @@
 #'
 #' @examples
 #'    exdatadir <- system.file('extdata', package = 'FORUMVF')
+#'    set_hdrtxt('attr')
+#'    xml_extract_full(sprintf("%s/testdata.xml", exdatadir))
 #'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
-#'    root <- xml2::xml_root(parsed)
-#'    old_hdrtxt <- set_hdrtxt('attr')
 #'    xml_extract_full(root)
-#'    set_hdrtxt(old_hdrtxt)
+#'    root <- xml2::xml_root(parsed)
+#'    xml_extract_full(root)
+#'    reset_hdrtxt()
 xml_extract_full <- function(
     top,
     comments = FALSE,
@@ -25,11 +27,25 @@ xml_extract_full <- function(
     dropXY = eyeformat %in% c("OD", "OS"),
     extra4fields = FALSE,
     asvector = TRUE,
-    verbose = 0) {
+    verbose = 0L) {
 
   eyeformat <- match.arg(eyeformat, choices = c("OD", "OS", "file", "raw"))
 
-  if (!("xml_node" %in% class(top))) stop("'top' must be class 'xml_node'.")
+  if (inherits(top, "character")) { # assume it is a filename
+    if (length(top) == 1) {
+      top <- xml2::read_xml(top) # read file and return xml_node
+    } else if (length(top) > 1) {
+      warning("'top' is a character vector with length > 1. Only first used.")
+      top <- xml2::read_xml(top[1]) # read first file
+    } else { # length == 0
+      warning("'top' is empty character vector instead of xml_node or filename.")
+      retval[which(retval == "")] <- NA_character_
+      return(retval)
+    }
+  }
+  if (!inherits(top, "xml_node")) {
+    stop("'top' must be an xml_node or a filename (character)")
+  }
 
   maininfo <- xml_extract(top = top, comments = comments, verbose = verbose)
 
@@ -52,7 +68,7 @@ xml_extract_full <- function(
   TestPattern <- maininfo["TestPattern"]
   TestStrategy <- maininfo["TestStrategy"]
 
-  if (isTRUE(verbose > 0)) {
+  if (isTRUE(verbose > 0L)) {
     cat(sprintf(
       "Test Pattern and Strategy: '%s', '%s'\n",
       TestPattern, TestStrategy))
@@ -82,7 +98,7 @@ xml_extract_full <- function(
     NA_integer_)
 
   if (is.na(expectedpoints)) {
-    if (isTRUE(verbose > 1)) cat(sprintf(
+    if (isTRUE(verbose > 1L)) cat(sprintf(
       "Non-standard test: '%s'. Points not read.\n", TestPattern))
     # return(NULL)
   }
@@ -93,7 +109,7 @@ xml_extract_full <- function(
   Laterality1 <- maininfo["Laterality1"]
   Laterality2 <- maininfo["Laterality2"]
 
-  if (isTRUE(verbose > 0)) {
+  if (isTRUE(verbose > 0L)) {
     cat(sprintf("Laterality 1 and 2: '%s', '%s'\n", Laterality1, Laterality2))
   }
 
@@ -196,7 +212,7 @@ xml_extract_full <- function(
         FUN = function(x, y) sprintf("%s%d", y, x)))
 
     c(maininfo,
-      Eye = Laterality1,
+      Eye = as.vector(Laterality1),
       Format = eyeformat,
       ptvector)
   } else if (isFALSE(asvector)) {

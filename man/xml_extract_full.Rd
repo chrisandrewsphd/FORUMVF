@@ -11,11 +11,11 @@ xml_extract_full(
   dropXY = eyeformat \%in\% c("OD", "OS"),
   extra4fields = FALSE,
   asvector = TRUE,
-  verbose = 0
+  verbose = 0L
 )
 }
 \arguments{
-\item{top}{Root node of an xml file}
+\item{top}{Root node (class xml_node) of an xml file or a filename (character).}
 
 \item{comments}{Should the patient and text comments be extracted? Default is \code{FALSE}.}
 
@@ -37,9 +37,11 @@ Extract summary and point information from FORUM XML file
 }
 \examples{
    exdatadir <- system.file('extdata', package = 'FORUMVF')
+   set_hdrtxt('attr')
+   xml_extract_full(sprintf("\%s/testdata.xml", exdatadir))
    parsed <- xml2::read_xml(sprintf("\%s/testdata.xml", exdatadir))
-   root <- xml2::xml_root(parsed)
-   old_hdrtxt <- set_hdrtxt('attr')
    xml_extract_full(root)
-   set_hdrtxt(old_hdrtxt)
+   root <- xml2::xml_root(parsed)
+   xml_extract_full(root)
+   reset_hdrtxt()
 }

@@ -1,7 +1,7 @@
 #' Extract test level information from FORUM XML file
 #'
-#' @param top Root node of an xml file
-#' @param comments Should the patient and text comments be extracted? Default is FALSE.
+#' @param top Root node (class xml_node) of an xml file or a filename (character).
+#' @param comments Should the patient and text comments be extracted? Default is \code{FALSE}.
 #' @param verbose (integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.
 #'
 #' @return a character vector with about 60 components extracted from the XML
@@ -9,10 +9,14 @@
 #'
 #' @examples
 #'    exdatadir <- system.file('extdata', package = 'FORUMVF')
+#'    set_hdrtxt('attr')
+#'    xml_extract(sprintf("%s/testdata.xml", exdatadir))
 #'    parsed <- xml2::read_xml(sprintf("%s/testdata.xml", exdatadir))
+#'    xml_extract(parsed)
 #'    root <- xml2::xml_root(parsed)
 #'    xml_extract(root)
-xml_extract <- function(top, comments = FALSE, verbose = 0) {
+#'    reset_hdrtxt()
+xml_extract <- function(top, comments = FALSE, verbose = 0L) {
   # Create empty return vector
   retvalnames <- c(
     "TestID",
@@ -46,6 +50,22 @@ xml_extract <- function(top, comments = FALSE, verbose = 0) {
 
   retval <- character(length(retvalnames))
   names(retval) <- retvalnames
+
+  if (inherits(top, "character")) { # assume it is a filename
+    if (length(top) == 1) {
+      top <- xml2::read_xml(top) # read file and return xml_node
+    } else if (length(top) > 1) {
+      warning("'top' is a character vector with length > 1. Only first used.")
+      top <- xml2::read_xml(top[1]) # read first file
+    } else { # length == 0
+      warning("'top' is empty character vector instead of xml_node or filename.")
+      retval[which(retval == "")] <- NA_character_
+      return(retval)
+    }
+  }
+  if (!inherits(top, "xml_node")) {
+    stop("'top' must be an xml_node or a filename (character)")
+  }
 
   ###########
   # TEST ID #
