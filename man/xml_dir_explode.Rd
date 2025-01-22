@@ -4,12 +4,13 @@
 \alias{xml_dir_explode}
 \title{Find root node for each xml file in a directory}
 \usage{
-xml_dir_explode(xmldir, recursive = FALSE, verbose = 0)
+xml_dir_explode(xmldir, recursive = FALSE, verbose = 0L)
 }
 \arguments{
-\item{xmldir}{(character) Name of directory containing xml files from FORUM}
+\item{xmldir}{(character) Name of directory containing xml files from FORUM.}
 
-\item{recursive}{(logical) Should sub directories be included? Default is FALSE}
+\item{recursive}{(logical) Should sub directories be included? Default is
+\code{FALSE}.}
 
 \item{verbose}{(integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.}
 }

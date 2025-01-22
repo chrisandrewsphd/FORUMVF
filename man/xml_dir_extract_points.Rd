@@ -12,13 +12,14 @@ xml_dir_extract_points(
   eyeformat = "OD",
   dropXY = eyeformat \%in\% c("OD", "OS"),
   extra4fields = FALSE,
-  verbose = 0
+  verbose = 0L
 )
 }
 \arguments{
-\item{xmldir}{(character) Name of directory containing xml files from FORUM}
+\item{xmldir}{(character) Name of directory containing xml files from FORUM.}
 
-\item{recursive}{(logical) Should sub directories be included? Default is FALSE}
+\item{recursive}{(logical) Should sub directories be included? Default is
+\code{FALSE}.}
 
 \item{csvdir}{(character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.}
 

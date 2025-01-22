@@ -1,7 +1,8 @@
 #' Find root node for each xml file in a directory
 #'
-#' @param xmldir (character) Name of directory containing xml files from FORUM
-#' @param recursive (logical) Should sub directories be included? Default is FALSE
+#' @param xmldir (character) Name of directory containing xml files from FORUM.
+#' @param recursive (logical) Should sub directories be included? Default is
+#' \code{FALSE}.
 #' @param verbose (integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.
 #'
 #' @return list of root nodes, one for each xml file in the directory xmldir
@@ -11,7 +12,7 @@
 xml_dir_explode <- function(
     xmldir,
     recursive = FALSE,
-    verbose = 0) {
+    verbose = 0L) {
 
   # all xml filenames in directory xmldir
   # xmlfilenames <- grep(

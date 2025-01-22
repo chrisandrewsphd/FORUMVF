@@ -8,21 +8,29 @@ xml_dir_extract_full(
   xmldir,
   recursive = FALSE,
   csvdir = NULL,
+  excludenonhvf = FALSE,
   comment = FALSE,
   eyeformat = "OD",
   dropXY = eyeformat \%in\% c("OD", "OS"),
   extra4fields = FALSE,
-  verbose = 0
+  verbose = 0L
 )
 }
 \arguments{
-\item{xmldir}{(character) Name of directory containing xml files from FORUM}
+\item{xmldir}{(character) Name of directory containing xml files from FORUM.}
 
-\item{recursive}{(logical) Should sub directories be included? Default is FALSE}
+\item{recursive}{(logical) Should sub directories be included? Default is
+\code{FALSE}.}
 
 \item{csvdir}{(character) Name of directory to write csv file(s) to. Default (\code{NULL}) is not to write files.}
 
-\item{comment}{(logical) Should text comment and patient comment be extracted? Default is FALSE.}
+\item{excludenonhvf}{(logical) Should files that don't have a recognizable
+HVF Test Pattern be excluded from the output file? If \code{FALSE} (default),
+then the number of rows of the returned matrix will be the same as the number
+of files in \code{xmldir}. If \code{TRUE}, it may be less. Files with empty
+test pattern will be excluded.}
+
+\item{comment}{(logical) Should text comment and patient comment be extracted? Default is \code{FALSE}.}
 
 \item{eyeformat}{See `xml_extract_points()`. Leave as \code{"OD"} (default).}
 
@@ -33,7 +41,8 @@ xml_dir_extract_full(
 \item{verbose}{(integer) Amount of output to the console.  0 is none. Higher values may produce more output. Default 0.}
 }
 \value{
-list with 3 components (invisibly). Component 1 ("main") is matrix of HVF summary data. Component 2 ("points") is a list of character matrices. Each subcomponent is a matrix for a Test Pattern containing the points data. Component 3 ("full") is the same as component 2 but includes both summary and points data.
+list of character matrices (invisibly). Each component is a
+matrix for a Test Pattern containing the summary and points data.
 }
 \description{
 Extract visual field summaries and point value from all xml files in a directory
