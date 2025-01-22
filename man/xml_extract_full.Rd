@@ -40,7 +40,7 @@ Extract summary and point information from FORUM XML file
    set_hdrtxt('attr')
    xml_extract_full(sprintf("\%s/testdata.xml", exdatadir))
    parsed <- xml2::read_xml(sprintf("\%s/testdata.xml", exdatadir))
-   xml_extract_full(root)
+   xml_extract_full(parsed)
    root <- xml2::xml_root(parsed)
    xml_extract_full(root)
    reset_hdrtxt()
